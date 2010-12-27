@@ -1,10 +1,10 @@
-xml.instruct! :xml, :version => "1.0" 
+xml.instruct! :xml, :version => "1.0"
 xml.rss :version => "2.0" do
   xml.channel do
-    xml.title "Blogcast"
-    xml.description "Blogcast is a better way to blog."
+    xml.title "RoR-e.com"
+    xml.description "RoR ecommerce"
     xml.link posts_url
-    
+
     for post in @posts
       xml.item do
         xml.title post.title
