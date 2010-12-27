@@ -3,7 +3,8 @@ class PostsController < ApplicationController
   layout 'blog'
   # GET /posts
   def index
-    @posts = Post.all(:select => "title, author, id, content, posted_at", :order => "posted_at DESC", :limit => 15)
+    params[:page] ||= 1
+    @posts = Post.includes(:comments).order("posted_at DESC").paginate({:page => params[:page],:per_page => 1})
 
     respond_to do |format|
       format.html
