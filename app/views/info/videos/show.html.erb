@@ -1,0 +1,11 @@
+<h1> <%= @brand.name %> </h1>
+
+<p>
+  <strong><%= @brand.description %></strong>
+</p>
+
+<%= raw @brand.content %>
+
+<p>
+  <%= link_to "All Videos", info_videos_path, :class => 'button' %>
+</p>

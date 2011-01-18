@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101221043417) do
+ActiveRecord::Schema.define(:version => 20101224072623) do
 
   create_table "comments", :force => true do |t|
     t.string   "name"
@@ -47,9 +47,6 @@ ActiveRecord::Schema.define(:version => 20101221043417) do
     t.string   "author"
     t.text     "markdown"
     t.boolean  "commentable"
-    t.string   "name"
-    t.string   "website"
-    t.string   "email"
   end
 
   create_table "spams", :force => true do |t|
@@ -83,6 +80,15 @@ ActiveRecord::Schema.define(:version => 20101221043417) do
     t.string   "current_login_ip"
     t.string   "last_login_ip"
     t.string   "login"
+  end
+
+  create_table "videos", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.text     "description"
+    t.string   "topic"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

@@ -1,0 +1,13 @@
+<h1> Videos </h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+  </tr>
+  <% for video in @videos %>
+    <tr>
+      <td><%= video.title %></td>
+      <td><%= link_to "Show", info_video_path(brand) %></td>
+    </tr>
+  <% end %>
+</table>
