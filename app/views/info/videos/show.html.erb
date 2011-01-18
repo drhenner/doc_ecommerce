@@ -1,10 +1,20 @@
-<h1> <%= @brand.name %> </h1>
+
+
+<% content_for :footer do -%>
+  <%= render :partial => 'shared/footer' %>
+<% end %>
+
+<% content_for :right_panel do -%>
+  <%= render :partial => '/shared/side_menu' %>
+<% end %>
+
+<h1> <%= @video.title %> </h1>
 
 <p>
-  <strong><%= @brand.description %></strong>
+  <strong><%= raw @video.description %></strong>
 </p>
 
-<%= raw @brand.content %>
+<%= raw @video.content %>
 
 <p>
   <%= link_to "All Videos", info_videos_path, :class => 'button' %>

@@ -1,3 +1,13 @@
+
+
+<% content_for :footer do -%>
+  <%= render :partial => 'shared/footer' %>
+<% end %>
+
+<% content_for :right_panel do -%>
+  <%= render :partial => '/shared/side_menu' %>
+<% end %>
+
 <h1> Videos </h1>
 
 <table>
@@ -7,7 +17,7 @@
   <% for video in @videos %>
     <tr>
       <td><%= video.title %></td>
-      <td><%= link_to "Show", info_video_path(brand) %></td>
+      <td><%= link_to "Show", info_video_path(video) %></td>
     </tr>
   <% end %>
 </table>

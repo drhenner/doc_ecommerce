@@ -1,10 +1,10 @@
 class Info::VideosController < ApplicationController
-layout 'welcome'
+  layout 'videos'
   def index
     @videos = Video.all
   end
 
   def show
-    @video = Video.find(param[:id])
+    @video = Video.find(params[:id])
   end
 end
