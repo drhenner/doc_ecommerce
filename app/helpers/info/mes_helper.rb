@@ -1,0 +1,2 @@
+module Info::MesHelper
+end

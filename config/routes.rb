@@ -22,6 +22,7 @@ DocEcommerce::Application.routes.draw do
   end
   namespace :info do
     resource :about,      :only => [:show]
+    resource :me,         :only => [:show]
     resource :about_ror,  :only => [:show]
     resources :videos,    :only => [:index, :show]
   end
