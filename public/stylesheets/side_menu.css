@@ -25,7 +25,7 @@ body#home ol#next-steps {
   float: left;
   margin-top: 0.7em;
   width: 200px;
-  font-family: "Arial Rounded MT Bold";
+  font-family: "Arial Rounded MT Bold", "Helvetica Rounded Bold", "Arial Bold", Arial;
   color: #3f3837; }
   * html body#home ol#next-steps {
     overflow-x: hidden; }

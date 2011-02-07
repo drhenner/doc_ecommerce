@@ -257,7 +257,7 @@ html, body {
       overflow-x: hidden; }
   #footer ul li.opensource,
   #footer ul li.viewsource {
-    font-family: "Arial Rounded MT Bold";
+    font-family: "Arial Rounded MT Bold", "Helvetica Rounded Bold", "Arial Bold", Arial;
     color: #3f3837; }
     #footer ul li.opensource a,
     #footer ul li.viewsource a {
@@ -307,7 +307,7 @@ body#home {
     margin-right: 0;
     width: 346.667px;
     padding-left: 250px;
-    font-family: "Arial Rounded MT Bold";
+    font-family: "Arial Rounded MT Bold", "Helvetica Rounded Bold", "Arial Bold", Arial;
     color: #3f3837;
     font-size: 26px;
     text-align: right;
@@ -350,7 +350,7 @@ body#home {
     float: left;
     margin-right: 0;
     width: 200px;
-    font-family: "Arial Rounded MT Bold";
+    font-family: "Arial Rounded MT Bold", "Helvetica Rounded Bold", "Arial Bold", Arial;
     color: #3f3837; }
     * html body#home ol#next-steps {
       overflow-x: hidden; }
