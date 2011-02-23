@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   def index
     params[:page] ||= 1
-    @posts = Post.includes(:comments).order("posted_at DESC").paginate({:page => params[:page],:per_page => 1})
+    @posts = Post.includes(:comments).order("posted_at DESC").paginate({:page => params[:page],:per_page => 5})
 
     respond_to do |format|
       format.html
