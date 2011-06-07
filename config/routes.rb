@@ -27,6 +27,11 @@ DocEcommerce::Application.routes.draw do
     resources :videos,    :only => [:index, :show]
   end
 
+
+  namespace :ecommerce_book do
+    resources :chapters,  :only => [:index, :show]
+  end
+
   ###############################################
 
   #root :to => "posts#index"
