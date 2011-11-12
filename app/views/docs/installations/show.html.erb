@@ -38,7 +38,7 @@
     <p class='margin-vertical-5 margin-sides-10'>
       <ul>
         <li>gem install bundler</li>
-        <li>gem install rails -v3.0.3</li>
+        <li>gem install rails -v<%= rails_version %></li>
         <li>bundle install</li>
         <li>rake db:create</li>
         <li>rake db:migrate</li>
@@ -101,7 +101,7 @@
 
 </div>
 <div class=' clear'></div>
-<div class=''>Please use <b>Ruby 1.9.2</b> and enjoy <b>Rails 3.0</b>.</div>
+<div class=''>Please use <b>Ruby 1.9.2</b> and enjoy <b>Rails <%= rails_version %></b>.</div>
 
 <% content_for :right_panel do -%>
   <%#= render :partial => 'docs/contents'%>
