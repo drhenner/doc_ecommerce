@@ -5,9 +5,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>
   File: README
-  
+
     &mdash; Documentation by YARD 0.7.3
-  
+
 </title>
 
   <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
@@ -29,31 +29,31 @@
     <script type="text/javascript" charset="utf-8">
       if (window.top.frames.main) document.body.className = 'frames';
     </script>
-    
+
     <div id="header">
       <div id="menu">
-  
-    <a href="_index.html" title="Index">Index</a> &raquo; 
+
+    <a href="_index.html" title="Index">Index</a> &raquo;
     <span class="title">File: README</span>
-  
-  
+
+
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
       <div id="search">
-  
+
     <a id="class_list_link" href="#">Class List</a>
-  
+
     <a id="method_list_link" href="#">Method List</a>
-  
+
     <a id="file_list_link" href="#">File List</a>
-  
+
 </div>
       <div class="clear"></div>
     </div>
-    
+
     <iframe id="search_frame"></iframe>
-    
+
     <div id="content"><div id='filecontents'><h1>Project Overview</h1>
 <p>Please create a ticket if on github you have issues.  They will be addressed <span class="caps">ASAP</span>.</p>
 <p><a href="http://www.ror-e.com">Please look at the homepage for more details: www.ror-e.com</a></p>
@@ -82,21 +82,21 @@ system and a formal way to submit your patch.</p>
 <p>install rvm with ruby 1.9.2 or if you have 1.9.2 on your system you&#8217;re good to go. Please refer to the <a href="http://beginrescueend.com/rvm/basics/">rvm</a> and <a href="http://gembundler.com">bundler</a> home pages for more details.</p>
 <p>Configure your database.yml file (add the development and test database)</p>
 
-	<ol>
-		<li>Go into config/config.yml and change the encryption_key</li>
-	</ol><blockquote>
+  <ol>
+    <li>Go into config/config.yml and change the encryption_key</li>
+  </ol><blockquote>
 <p>aes = OpenSSL::Cipher::Cipher.new(&#8216;<span class="caps">AES</span>-256-<span class="caps">CBC</span>&#8217;)
   set_encryption_key_to = aes.random_iv</p>
 </blockquote>
 
-	<ol>
-		<li>gem install bundler</li>
-		<li>bundle install</li>
-		<li>rake db:create</li>
-		<li>rake db:migrate</li>
-		<li>rake db:seed</li>
-		<li>rake db:test:prepare</li>
-	</ol><p>######compass install</p>
+  <ol>
+    <li>gem install bundler</li>
+    <li>bundle install</li>
+    <li>rake db:create</li>
+    <li>rake db:migrate</li>
+    <li>rake db:seed</li>
+    <li>rake db:test:prepare</li>
+  </ol><p>######compass install</p>
 <p>Need to create config/config.yml and change the encryption key and paypal or auth.net information.
 You can also change config/config.yml.example to config/config.yml until you get your real info.</p>
 <p>Paperclip will throw errors if not configured correctly.
@@ -116,8 +116,7 @@ Paperclip.options[:command_path] = &#8220;/usr/bin&#8221;</p>
 <p>Install memcached, this is easiest to do with <a href="http://mxcl.github.com/homebrew/">homebrew</a> and :</p>
 <pre class="code"><span class='id brew'>brew</span> <span class='id install'>install</span> <span class='id memcached'>memcached</span></pre>
 <blockquote>
-<p>memcached -vv  ## you can config many other cache stores but
-                ## the cookie store will not work (in the admin) and the DB session store will be a dog</p>
+<p>memcached -vv</p>
 </blockquote>
 <h4>TO <span class="caps">TURN</span> ON <span class="caps">THE</span> <span class="caps">DALLI</span> <span class="caps">COOKIE</span> <span class="caps">STORE</span></h4>
 Remove the cookie store on line one of config/initializers/session_store.rb
@@ -152,10 +151,10 @@ when you try to create a product or upload an image you have not started solr se
 remember you need to run &#8220;rake sunspot:solr:start&#8221; or remove solr/search
 <h2>TODOs:</h2>
 <ul>
-	<li>product sales (eg. 20% off)</li>
-	<li>make admin UI have a better flow (product creation/ images / inventory)</li>
-	<li>more documentation / videos for creating products/variants</li>
-	<li>easy setup of fake data for getting started</li>
+  <li>product sales (eg. 20% off)</li>
+  <li>make admin UI have a better flow ( images )</li>
+  <li>more documentation / videos for creating products/variants</li>
+  <li>easy setup of fake data for getting started</li>
 </ul>
 <h2>Author</h2>
 <p>RoR Ecommerce was written by David Henner:</p>
@@ -164,9 +163,9 @@ remember you need to run &#8220;rake sunspot:solr:start&#8221; or remove solr/se
 <p>Shipping categories are categories based off price:</p>
 <p>you might have two shipping categories (light items) &amp; (heavy items)
 Have fun!!!</p></div></div>
-    
+
     <div id="footer">
-  Generated on Tue Nov 29 10:08:53 2011 by 
+  Generated on Tue Nov 29 10:08:53 2011 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.7.3 (ruby-1.9.2).
 </div>

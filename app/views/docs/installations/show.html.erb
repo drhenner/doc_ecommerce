@@ -48,31 +48,58 @@
     </p>
 
     <hr/>
+<h2>Adding Dalli for cache and the session store</h2>
+<p>
+Install memcached, this is easiest to do with <a href="http://mxcl.github.com/homebrew/">homebrew</a> :
 
+<div class='install'>brew install memcached</div>
+and
+<div class='install'>
+  memcached -vv
+</div>
+  <h4>TO TURN ON THE DALLI COOKIE STORE </h4>
+  <p>
+Remove the cookie store on line one of config/initializers/session_store.rb
+go to the Gemfile and add
+<pre class="CodeRay">  gem 'dalli' </pre>
+then
+<pre class="CodeRay"> bundle install</pre>
+Finally  UNCOMMENT the next 2 lines in config/initializers/session_store.rb
+<pre class="CodeRay"> require 'action_dispatch/middleware/session/dalli_store' <br/>
+
+Hadean::Application.config.session_store :dalli_store, :key => '_hadean_session_ugrdr6765745ce4vy'</pre>
+
+<h4>TO TURN ON THE DALLI CACHE STORE</h4>
+it is also recommended to change the cache store in config/environments/*.rb
+
+<pre class="CodeRay"> config.cache_store = :dalli_store </pre>
+</p>
+<hr/>
+<h2>Adding Solr Search</h2>
+
+<div class='install'>brew install solr</div>
+Uncomment the following in your gemfile
+  <pre class="CodeRay">
+  #gem 'sunspot_solr'
+  #gem 'sunspot_rails', '~> 1.3'
+  </pre>
+
+  <div class='install'>bundle install</div>
+
+
+  start solr before starting you server
+
+  Go to the bottom of product.rb and uncomment the section with: <br>
+  “Product.class_eval”
     <p>
       Time to start <%= link_to 'Sunspot / Solr', 'http://outoftime.github.com/sunspot/docs/index.html', 'data-popup' => true %> and
       <%= link_to 'memcache', 'http://oldwiki.rubyonrails.org/rails/pages/MemCached', 'data-popup' => true %> (yep you better install them)
       <div class='install'>rake sunspot:solr:start</div>
-      If you decide not to use solr, go into product.rb and delete the following:
-      <pre class='CodeRay' ><%=raw textilize(
-      "<code lang='ruby'>      searchable do
-        text    :name, :default_boost => 2
-        text      :product_keywords
-        text      :description
-        time      :deleted_at
-      end </code>") %></pre>
 
       Take a look at setting up solr <br/>
       <%= link_to 'Solr in 5 minutes', 'http://github.com/outoftime/sunspot/wiki/adding-sunspot-search-to-rails-in-5-minutes-or-less', 'data-popup' => true%>
 
 
-    </p>
-    <p>
-      <div class='install'>
-        memcached -vv
-      </div>
-        ## you can config many other cache stores but <br/>
-        ## the cookie store will not work (in the admin) and the DB session store will be a dog
     </p>
     <p>
       You Need to create config/config.yml and change the encryption key and paypal or auth.net information.
