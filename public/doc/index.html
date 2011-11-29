@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>
+  File: README
+  
+    &mdash; Documentation by YARD 0.7.3
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html" title="Index">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><div id='filecontents'><h1>Project Overview</h1>
+<p>Please create a ticket if on github you have issues.  They will be addressed <span class="caps">ASAP</span>.</p>
+<p><a href="http://www.ror-e.com">Please look at the homepage for more details: www.ror-e.com</a></p>
+<p>This is a Rails e-commerce platform.  Other e-commerce projects that
+use rails, don&#8217;t use rails in a standard way.  They use engines or are a separate
+framework altogether.</p>
+<p><span class="caps">ROR</span> ecommerce is a <strong>Rails 3 application</strong> with the intent to allow developers to create
+an ecommerce solution easily.  This solution includes, an Admin for  <strong>Purchase Orders</strong>,
+<strong>Product creation</strong>, <strong>Shipments</strong>, <strong>Fulfillment</strong> and <strong>creating Orders</strong>.  There is a minimal
+customer facing shopping cart understanding that this will be customized.  The cart allows
+you to track your customers <strong>cart history</strong> and includes a <strong>double entry accounting system</strong>.</p>
+<p>The project has <strong>solr searching</strong>, <strong>compass</strong> and <strong>blueprint for <span class="caps">CSS</span></strong> and uses <strong>jQuery</strong>.
+The gem list is quite large and the project still has a large wish list but it is the most
+complete solution for Rails today and it will only get better.</p>
+<p>Please use <strong>Ruby 1.9.2</strong> and enjoy <strong>Rails 3.1.1</strong>.</p>
+<p>ROR_ecommerce is designed differently.  If you understand Rails you will understand ROR_ecommerce.
+There is nothing in this project that you wouldn&#8217;t see in a normal Rails application.  If you don&#8217;t like
+what is in the project just change it like you would in any other Rails app.</p>
+<p>Contributors are welcome.  For now email David Henner (<strong>drhenner@yahoo.com</strong>) to see how you
+can contribute. (send your patch if you have one.)  Soon there will be a bug tracking
+system and a formal way to submit your patch.</p>
+<p>We will always need help with UI, Documentation and code so feel free to help.</p>
+<h2>Getting Started</h2>
+<p>We have a google group.  Ask question and help answer questions.
+<a href="http://groups.google.com/group/ror_ecommerce">ror_ecommerce Google-group</a></p>
+<p>install rvm with ruby 1.9.2 or if you have 1.9.2 on your system you&#8217;re good to go. Please refer to the <a href="http://beginrescueend.com/rvm/basics/">rvm</a> and <a href="http://gembundler.com">bundler</a> home pages for more details.</p>
+<p>Configure your database.yml file (add the development and test database)</p>
+
+	<ol>
+		<li>Go into config/config.yml and change the encryption_key</li>
+	</ol><blockquote>
+<p>aes = OpenSSL::Cipher::Cipher.new(&#8216;<span class="caps">AES</span>-256-<span class="caps">CBC</span>&#8217;)
+  set_encryption_key_to = aes.random_iv</p>
+</blockquote>
+
+	<ol>
+		<li>gem install bundler</li>
+		<li>bundle install</li>
+		<li>rake db:create</li>
+		<li>rake db:migrate</li>
+		<li>rake db:seed</li>
+		<li>rake db:test:prepare</li>
+	</ol><p>######compass install</p>
+<p>Need to create config/config.yml and change the encryption key and paypal or auth.net information.
+You can also change config/config.yml.example to config/config.yml until you get your real info.</p>
+<p>Paperclip will throw errors if not configured correctly.
+you will need to find out where the Imagemagick program is installed
+type &#8220;which identify&#8221; in the terminal and set Paperclip.options[:command_path] equal
+to that path in environment.rb: Examples:
+Paperclip.options[:command_path] = &#8220;/usr/local/bin&#8221;
+into:
+Paperclip.options[:command_path] = &#8220;/usr/bin&#8221;</p>
+<p>Once everything is setup, start up the server with &#8216;rails server&#8217; and direct it to
+<strong>localhost:3000/admin/overviews</strong></p>
+<p>write down the username/password and follow the directions.</p>
+<h2><span class="caps">YARDOCS</span></h2>
+<p>If you would like to see the docs you can generate them locally with the following command:</p>
+<pre class="code">yardoc --no-private --protected app/models/*.rb</pre>
+<h2>Adding Dalli for cache and the session store</h2>
+<p>Install memcached, this is easiest to do with <a href="http://mxcl.github.com/homebrew/">homebrew</a> and :</p>
+<pre class="code"><span class='id brew'>brew</span> <span class='id install'>install</span> <span class='id memcached'>memcached</span></pre>
+<blockquote>
+<p>memcached -vv  ## you can config many other cache stores but
+                ## the cookie store will not work (in the admin) and the DB session store will be a dog</p>
+</blockquote>
+<h4>TO <span class="caps">TURN</span> ON <span class="caps">THE</span> <span class="caps">DALLI</span> <span class="caps">COOKIE</span> <span class="caps">STORE</span></h4>
+Remove the cookie store on line one of config/initializers/session_store.rb
+go to the Gemfile and add
+<pre class="code">
+<span class='id gem'>gem</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>dalli</span><span class='tstring_end'>'</span></span></pre>
+<p>then</p>
+<pre class="code"><span class='id bundle'>bundle</span> <span class='id install'>install</span></pre>
+Finally <span class="caps">UNCOMMENT</span> the next 2 lines in config/initializers/session_store.rb
+<pre class="code">
+<span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>action_dispatch/middleware/session/dalli_store</span><span class='tstring_end'>'</span></span>
+<span class='const'>Hadean</span><span class='op'>::</span><span class='const'>Application</span><span class='period'>.</span><span class='id config'>config</span><span class='period'>.</span><span class='id session_store'>session_store</span> <span class='symbol'>:dalli_store</span><span class='comma'>,</span> <span class='symbol'>:key</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>_hadean_session_ugrdr6765745ce4vy</span><span class='tstring_end'>'</span></span></pre>
+<h4>TO <span class="caps">TURN</span> ON <span class="caps">THE</span> <span class="caps">DALLI</span> <span class="caps">CACHE</span> <span class="caps">STORE</span></h4>
+<p>it is also recommended to change the cache store in config/environments/*.rb</p>
+<pre class="code"><span class='id config'>config</span><span class='period'>.</span><span class='id cache_store'>cache_store</span> <span class='op'>=</span> <span class='symbol'>:dalli_store</span></pre>
+<h2>Adding Solr Search</h2>
+<pre class="code"><span class='id brew'>brew</span> <span class='id install'>install</span> <span class='id solr'>solr</span></pre>
+<p>Uncomment the following in your gemfile</p>
+<pre class="code"><span class='comment'>#gem 'sunspot_solr'
+</span><span class='comment'>#gem 'sunspot_rails', '~&gt; 1.3'</span></pre>
+<p><strong>bundle install</strong></p>
+<p>start solr before starting you server
+rake sunspot:solr:start</p>
+<p>Go to the <strong>bottom of product.rb</strong> and uncomment the section with <strong>&#8220;Product.class_eval&#8221;</strong></p>
+<blockquote>
+<p>Take a look at setting up solr
+    <a href="http://github.com/outoftime/sunspot/wiki/adding-sunspot-search-to-rails-in-5-minutes-or-less">Solr in 5 minutes</a></p>
+</blockquote>
+If you get the following error:
+Errno::<span class="caps">ECONNREFUSED</span> (Connection refused &#8211; connect(2)):
+when you try to create a product or upload an image you have not started solr search.
+remember you need to run &#8220;rake sunspot:solr:start&#8221; or remove solr/search
+<h2>TODOs:</h2>
+<ul>
+	<li>product sales (eg. 20% off)</li>
+	<li>make admin UI have a better flow (product creation/ images / inventory)</li>
+	<li>more documentation / videos for creating products/variants</li>
+	<li>easy setup of fake data for getting started</li>
+</ul>
+<h2>Author</h2>
+<p>RoR Ecommerce was written by David Henner:</p>
+<p>To view contributors look at Contributors.textile</p>
+<h2><span class="caps">FYI</span>:</h2>
+<p>Shipping categories are categories based off price:</p>
+<p>you might have two shipping categories (light items) &amp; (heavy items)
+Have fun!!!</p></div></div>
+    
+    <div id="footer">
+  Generated on Tue Nov 29 10:08:53 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.3 (ruby-1.9.2).
+</div>
+
+  </body>
+</html>
