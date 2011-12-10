@@ -19,3 +19,17 @@
 <p>
   <%= link_to "All Videos", info_videos_path, :class => 'button' %>
 </p>
+
+<h2> Other Videos </h2>
+
+<table>
+  <tr>
+    <th>Title</th>
+  </tr>
+  <% for video in @videos %>
+    <tr>
+      <td><%= video.title %></td>
+      <td><%= link_to "Show", info_video_path(video) %></td>
+    </tr>
+  <% end %>
+</table>
