@@ -27,6 +27,8 @@ DocEcommerce::Application.routes.draw do
     resources :videos,    :only => [:index, :show]
   end
 
+  resource :what_people_are_saying, :only => [:show]
+
 
   namespace :ecommerce_book do
     resources :chapters,  :only => [:index, :show]
