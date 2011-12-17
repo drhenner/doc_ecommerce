@@ -9,7 +9,7 @@
 <%= stylesheet_link_tag "blog" %> <%= yield :modstyles %>
 <%= stylesheet_link_tag "side_menu" %>
 <!--<link href="images/favicon.ico" rel="Shortcut Icon" type="image/x-icon"/>-->
-<%= auto_discovery_link_tag(:rss, "#") %>
+<%#= auto_discovery_link_tag(:rss, "#") %>
 <% if Rails.env.production? %>
 <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js" %>
 <% else %>
