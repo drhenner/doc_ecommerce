@@ -176,6 +176,6 @@
 </div><!--post-->
 
 <% content_for :sidebar do %>
-  <%= auto_discovery_link_tag(:rss, posts_url()) %>
+  <%= auto_discovery_link_tag(:rss, posts_url(:format => 'rss')) %>
   <%= render :partial => "layouts/sidebar" %>
 <% end %>
