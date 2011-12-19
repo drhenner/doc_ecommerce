@@ -11,44 +11,48 @@
 
 <% content_for :adminbar_left do %>
 
-<li><%= link_to "Edit Post", edit_post_path(@post) %></li>
+  <li><%= link_to "Edit Post", edit_post_path(@post) %></li>
 
-<% if @post.commentable %>
+  <% if @post.commentable %>
 
-  <li>
-    <%= form_for(@post) do |f| %>
-      <div><%= f.hidden_field :commentable, :value => "false" %></div>
-      <div><%= image_submit_tag "lightbulb-on.png",
-                                :class  => "comments-toggle",
-                                :title  => "Comments Open",
-                                :alt    => "Comments Open" %>
-      </div>
-    <% end %>
-  </li>
+    <li>
+      <%= form_for(@post) do |f| %>
+        <div><%= f.hidden_field :commentable, :value => "false" %></div>
+        <div><%= image_submit_tag "lightbulb-on.png",
+                                  :class  => "comments-toggle",
+                                  :title  => "Comments Open",
+                                  :alt    => "Comments Open" %>
+        </div>
+      <% end %>
+    </li>
 
-<% else %>
+  <% else %>
 
-  <li>
-    <%= form_for(@post) do |f| %>
-      <div><%= f.hidden_field :commentable, :value => "true" %></div>
-      <div><%= image_submit_tag "lightbulb-off.png",
-                                :class  => "comments-toggle",
-                                :title  => "Comments Closed",
-                                :alt    => "Comments Closed" %>
-      </div>
-    <% end %>
-  </li>
+    <li>
+      <%= form_for(@post) do |f| %>
+        <div><%= f.hidden_field :commentable, :value => "true" %></div>
+        <div><%= image_submit_tag "lightbulb-off.png",
+                                  :class  => "comments-toggle",
+                                  :title  => "Comments Closed",
+                                  :alt    => "Comments Closed" %>
+        </div>
+      <% end %>
+    </li>
 
-<% end %>
+  <% end %>
 
 <% end %>
 
 <% content_for :adminbar_right do %>
-<li class="right"><%= link_to "Delete Post", post_path(@post), :confirm => "Are you sure you want to delete this post?", :method => :delete, :class => "delete" %></li>
+  <li class="right">
+    <%= link_to "Delete Post", post_path(@post),
+                :confirm => "Are you sure you want to delete this post?",
+                :method => :delete, :class => "delete" %>
+  </li>
 <% end %>
 
 <div class="post">
-  <h4> If you haven't seen the <%= link_to 'e-commerce in 45 minutes video CLICK HERE', info_video_path(1) %></h4>
+  <h4> If you haven't seen <%= link_to 'The 15 minute E-Commerce Site CLICK HERE', info_video_path(7) %></h4>
   <h2><%= link_to @post.title, @post, :class => "article" %>
     <span class="nobreak">
       <span class="author"><%= @post.author %></span>

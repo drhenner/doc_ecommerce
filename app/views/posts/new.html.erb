@@ -47,7 +47,11 @@
     </div><!--wmd-container-->
 
     <ul class="options form-submit">
-      <li><%= f.submit "Share your post with the world", :name => "save_post", :confirm => "Are you sure you want to share this post with the world?" %></li>
+      <li>
+          <%= f.submit "Share your post with the world",
+                        :name => "save_post",
+                        :confirm => "Are you sure you want to share this post with the world?" %>
+      </li>
       <li class="right"><%= f.submit "Save as draft", :id => "draft_submit", :name => "save_draft" %></li>
     </ul>
     <% end %>
