@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <html><head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<title>RoR-e: Rails Ecommerce done right.</title>
+<% content_for :title do %><%= @post.title %><% end %>
+
+<% if content_for?(:title) %>
+  <title>RoR-e: <%= yield :title %></title>
+<% else %>
+  <title>RoR-e: Rails Ecommerce done right.</title>
+<% end %>
+
 <meta name="author" content="RoR-e Blog"/>
 <meta name="description" content="Ruby on Rails Ecommerce Blog"/>
 <%= csrf_meta_tag %>
