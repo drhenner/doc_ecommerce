@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html><head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<% content_for :title do %><%= @post.title %><% end %>
 
 <% if content_for?(:title) %>
   <title>RoR-e: <%= yield :title %></title>
