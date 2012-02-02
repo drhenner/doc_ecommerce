@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def rails_version
-    '3.2.0'
+    '3.2.1'
   end
   def coderay(text)
     text.gsub(/\<code( lang="(.+?)")?\>(.+?)\<\/code\>/m) do
