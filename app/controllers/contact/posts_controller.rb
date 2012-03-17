@@ -18,6 +18,8 @@ class Contact::PostsController < ApplicationController
 
   def create
     @post = Comment.new(params[:comment])
+    @post.user_ip     = request.remote_ip
+    @post.user_agent  = request.user_agent
     if @post.spam? || @post.save
       flash[:notice] = "Thank you for contacting us, we will get back to you shortly."
       #redirect_to contact_post_url(@post)
