@@ -6,7 +6,7 @@
 <title>
   Class: PurchaseOrderVariant
   
-    &mdash; Documentation by YARD 0.7.3
+    &mdash; Documentation by YARD 0.8.3
   
 </title>
 
@@ -15,9 +15,11 @@
   <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  if (relpath != '') relpath += '/';
+  framesUrl = "frames.html#!" + escape(window.location.href);
 </script>
+
 
   <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
 
@@ -26,36 +28,41 @@
 
   </head>
   <body>
-    <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) document.body.className = 'frames';
-    </script>
-    
     <div id="header">
       <div id="menu">
   
-    <a href="_index.html">Index (P)</a> &raquo; 
+    <a href="_index.html">Index (P)</a> &raquo;
     
     
     <span class="title">PurchaseOrderVariant</span>
   
-  
+
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
       <div id="search">
   
-    <a id="class_list_link" href="#">Class List</a>
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
   
-    <a id="method_list_link" href="#">Method List</a>
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
   
-    <a id="file_list_link" href="#">File List</a>
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
   
 </div>
       <div class="clear"></div>
     </div>
-    
+
     <iframe id="search_frame"></iframe>
-    
+
     <div id="content"><h1>Class: PurchaseOrderVariant
   
   
@@ -94,12 +101,34 @@
 </dl>
 <div class="clear"></div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<h2>Schema Information</h2>
+
+<p>Table name: purchase_order_variants</p>
+
+<pre class="code ruby"><code>id                :integer(4)      not null, primary key
+purchase_order_id :integer(4)      not null
+variant_id        :integer(4)      not null
+quantity          :integer(4)      not null
+cost              :decimal(8, 2)   not null
+is_received       :boolean(1)      default(FALSE)
+created_at        :datetime
+updated_at        :datetime</code></pre>
 
 
+  </div>
+</div>
+<div class="tags">
   
 
+</div>
 
-  
+
+
+
+
 
   
     <h2>
@@ -123,11 +152,11 @@
   
   
   
+  
 
   
-    <span class="summary_desc"><div class='inline'><p>
-This method will need a rescue method i assume.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>This method will need a rescue method i assume.</p>
 </div></span>
   
 </li>
@@ -147,11 +176,11 @@ This method will need a rescue method i assume.
   
   
   
+  
 
   
-    <span class="summary_desc"><div class='inline'><p>
-method used by forms to set if the PO is received or not.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>method used by forms to set if the PO is received or not.</p>
 </div></span>
   
 </li>
@@ -171,11 +200,11 @@ method used by forms to set if the PO is received or not.
   
   
   
+  
 
   
-    <span class="summary_desc"><div class='inline'><p>
-in the admin form this is the method called when the form is submitted,.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>in the admin form this is the method called when the form is submitted,.</p>
 </div></span>
   
 </li>
@@ -189,20 +218,21 @@ in the admin form this is the method called when the form is submitted,.
 
   <div id="instance_method_details" class="method_details_list">
     <h2>Instance Method Details</h2>
-    
+
     
       <div class="method_details first">
-  <p class="signature first" id="receive!-instance_method">
+  <h3 class="signature first" id="receive!-instance_method">
   
     - (<tt>Object</tt>) <strong>receive!</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
-    <p>
-This method will need a rescue method i assume.
-</p>
+    
+<p>This method will need a rescue method i assume.</p>
 
 
   </div>
@@ -216,41 +246,41 @@ This method will need a rescue method i assume.
       <pre class="lines">
 
 
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
 26
 27
-28</pre>
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/purchase_order_variant.rb', line 12</span>
+      <pre class="code"><span class="info file"># File 'app/models/purchase_order_variant.rb', line 26</span>
 
-<span class='kw'>def</span> <span class='id receive!'>receive!</span>
-  <span class='const'>PurchaseOrderVariant</span><span class='period'>.</span><span class='id transaction'>transaction</span> <span class='kw'>do</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_receive!'>receive!</span>
+  <span class='const'>PurchaseOrderVariant</span><span class='period'>.</span><span class='id identifier rubyid_transaction'>transaction</span> <span class='kw'>do</span>
     <span class='comment'>###  Add to variant stock level
-</span>    <span class='kw'>self</span><span class='period'>.</span><span class='id variant'>variant</span><span class='period'>.</span><span class='id inventory'>inventory</span><span class='period'>.</span><span class='id count_on_hand'>count_on_hand</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id variant'>variant</span><span class='period'>.</span><span class='id inventory'>inventory</span><span class='period'>.</span><span class='id count_on_hand'>count_on_hand</span> <span class='op'>+</span> <span class='id quantity'>quantity</span>
-    <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id variant'>variant</span><span class='period'>.</span><span class='id inventory'>inventory</span><span class='period'>.</span><span class='id save!'>save!</span>
+</span>    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_variant'>variant</span><span class='period'>.</span><span class='id identifier rubyid_inventory'>inventory</span><span class='period'>.</span><span class='id identifier rubyid_count_on_hand'>count_on_hand</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_variant'>variant</span><span class='period'>.</span><span class='id identifier rubyid_inventory'>inventory</span><span class='period'>.</span><span class='id identifier rubyid_count_on_hand'>count_on_hand</span> <span class='op'>+</span> <span class='id identifier rubyid_quantity'>quantity</span>
+    <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_variant'>variant</span><span class='period'>.</span><span class='id identifier rubyid_inventory'>inventory</span><span class='period'>.</span><span class='id identifier rubyid_save!'>save!</span>
       <span class='comment'>### change is_received to true
-</span>      <span class='kw'>self</span><span class='period'>.</span><span class='id is_received'>is_received</span> <span class='op'>=</span> <span class='kw'>true</span>
-      <span class='kw'>self</span><span class='period'>.</span><span class='id save!'>save!</span>
+</span>      <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_is_received'>is_received</span> <span class='op'>=</span> <span class='kw'>true</span>
+      <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_save!'>save!</span>
     <span class='kw'>end</span>
-    <span class='kw'>if</span> <span class='int'>0</span> <span class='op'>==</span> <span class='const'>PurchaseOrderVariant</span><span class='period'>.</span><span class='id where'>where</span><span class='lparen'>(</span><span class='lbrace'>{</span> <span class='symbol'>:purchase_order_variants</span> <span class='op'>=&gt;</span>
-                                              <span class='lbrace'>{</span> <span class='symbol'>:purchase_order_id</span> <span class='op'>=&gt;</span> <span class='id purchase_order_id'>purchase_order_id</span><span class='comma'>,</span>
+    <span class='kw'>if</span> <span class='int'>0</span> <span class='op'>==</span> <span class='const'>PurchaseOrderVariant</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='lbrace'>{</span> <span class='symbol'>:purchase_order_variants</span> <span class='op'>=&gt;</span>
+                                              <span class='lbrace'>{</span> <span class='symbol'>:purchase_order_id</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_purchase_order_id'>purchase_order_id</span><span class='comma'>,</span>
                                                 <span class='symbol'>:is_received</span>       <span class='op'>=&gt;</span> <span class='kw'>false</span>
-                                              <span class='rbrace'>}</span> <span class='rbrace'>}</span><span class='rparen'>)</span><span class='period'>.</span><span class='id count'>count</span>
-      <span class='kw'>self</span><span class='period'>.</span><span class='id purchase_order'>purchase_order</span><span class='period'>.</span><span class='id mark_as_complete'>mark_as_complete</span>
+                                              <span class='rbrace'>}</span> <span class='rbrace'>}</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_count'>count</span>
+      <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_purchase_order'>purchase_order</span><span class='period'>.</span><span class='id identifier rubyid_mark_as_complete'>mark_as_complete</span>
     <span class='kw'>end</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
@@ -260,23 +290,24 @@ This method will need a rescue method i assume.
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="receive_po-instance_method">
+  <h3 class="signature " id="receive_po-instance_method">
   
     - (<tt>Boolean</tt>) <strong>receive_po</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
-    <p>
-method used by forms to set if the PO is received or not
-</p>
+    
+<p>method used by forms to set if the PO is received or not</p>
 
 
   </div>
 </div>
 <div class="tags">
-  <h3>Parameters:</h3>
+  <p class="tag_title">Parameters:</p>
 <ul class="param">
   
     <li>
@@ -292,7 +323,7 @@ method used by forms to set if the PO is received or not
   
 </ul>
 
-<h3>Returns:</h3>
+<p class="tag_title">Returns:</p>
 <ul class="return">
   
     <li>
@@ -312,15 +343,15 @@ method used by forms to set if the PO is received or not
       <pre class="lines">
 
 
-45
-46
-47</pre>
+59
+60
+61</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/purchase_order_variant.rb', line 45</span>
+      <pre class="code"><span class="info file"># File 'app/models/purchase_order_variant.rb', line 59</span>
 
-<span class='kw'>def</span> <span class='id receive_po'>receive_po</span>
-  <span class='id is_received?'>is_received?</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_receive_po'>receive_po</span>
+  <span class='id identifier rubyid_is_received?'>is_received?</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -328,25 +359,26 @@ method used by forms to set if the PO is received or not
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="receive_po=-instance_method">
+  <h3 class="signature " id="receive_po=-instance_method">
   
     - (<tt>none</tt>) <strong>receive_po=</strong>(answer) 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
-    <p>
-in the admin form this is the method called when the form is submitted,
-</p>
-<pre class="code">
-  <span class='const'>The</span> <span class='id method'>method</span> <span class='id receives'>receives</span> <span class='id the'>the</span> <span class='const'>PO</span> <span class='kw'>and</span> <span class='id handles'>handles</span> <span class='id the'>the</span> <span class='id inventory'>inventory</span></pre>
+    
+<p>in the admin form this is the method called when the form is submitted,</p>
+
+<pre class="code ruby"><code><span class='const'>The</span> <span class='id identifier rubyid_method'>method</span> <span class='id identifier rubyid_receives'>receives</span> <span class='id identifier rubyid_the'>the</span> <span class='const'>PO</span> <span class='kw'>and</span> <span class='id identifier rubyid_handles'>handles</span> <span class='id identifier rubyid_the'>the</span> <span class='id identifier rubyid_inventory'>inventory</span></code></pre>
 
 
   </div>
 </div>
 <div class="tags">
-  <h3>Parameters:</h3>
+  <p class="tag_title">Parameters:</p>
 <ul class="param">
   
     <li>
@@ -359,16 +391,15 @@ in the admin form this is the method called when the form is submitted,
       
       
         &mdash;
-        <div class='inline'><p>
-for set_keywords in a products form
-</p>
+        <div class='inline'>
+<p>for set_keywords in a products form</p>
 </div>
       
     </li>
   
 </ul>
 
-<h3>Returns:</h3>
+<p class="tag_title">Returns:</p>
 <ul class="return">
   
     <li>
@@ -388,18 +419,18 @@ for set_keywords in a products form
       <pre class="lines">
 
 
-35
-36
-37
-38
-39</pre>
+49
+50
+51
+52
+53</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/purchase_order_variant.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'app/models/purchase_order_variant.rb', line 49</span>
 
-<span class='kw'>def</span> <span class='id receive_po='>receive_po=</span><span class='lparen'>(</span><span class='id answer'>answer</span><span class='rparen'>)</span>
-  <span class='kw'>if</span> <span class='lparen'>(</span><span class='id answer'>answer</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>true</span><span class='tstring_end'>'</span></span> <span class='op'>||</span> <span class='id answer'>answer</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>1</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id is_received?'>is_received?</span>
-    <span class='id receive!'>receive!</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_receive_po='>receive_po=</span><span class='lparen'>(</span><span class='id identifier rubyid_answer'>answer</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_answer'>answer</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>true</span><span class='tstring_end'>'</span></span> <span class='op'>||</span> <span class='id identifier rubyid_answer'>answer</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>1</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id identifier rubyid_is_received?'>is_received?</span>
+    <span class='id identifier rubyid_receive!'>receive!</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -410,11 +441,11 @@ for set_keywords in a products form
   </div>
 
 </div>
-    
+
     <div id="footer">
-  Generated on Tue Nov 29 10:08:56 2011 by 
+  Generated on Mon Jan 21 18:43:37 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.7.3 (ruby-1.9.2).
+  0.8.3 (ruby-1.9.3).
 </div>
 
   </body>

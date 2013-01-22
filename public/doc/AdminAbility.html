@@ -6,7 +6,7 @@
 <title>
   Class: AdminAbility
   
-    &mdash; Documentation by YARD 0.7.3
+    &mdash; Documentation by YARD 0.8.3
   
 </title>
 
@@ -15,9 +15,11 @@
   <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  if (relpath != '') relpath += '/';
+  framesUrl = "frames.html#!" + escape(window.location.href);
 </script>
+
 
   <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
 
@@ -26,36 +28,41 @@
 
   </head>
   <body>
-    <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) document.body.className = 'frames';
-    </script>
-    
     <div id="header">
       <div id="menu">
   
-    <a href="_index.html">Index (A)</a> &raquo; 
+    <a href="_index.html">Index (A)</a> &raquo;
     
     
     <span class="title">AdminAbility</span>
   
-  
+
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
       <div id="search">
   
-    <a id="class_list_link" href="#">Class List</a>
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
   
-    <a id="method_list_link" href="#">Method List</a>
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
   
-    <a id="file_list_link" href="#">File List</a>
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
   
 </div>
       <div class="clear"></div>
     </div>
-    
+
     <iframe id="search_frame"></iframe>
-    
+
     <div id="content"><h1>Class: AdminAbility
   
   
@@ -96,12 +103,24 @@
 </dl>
 <div class="clear"></div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>This is how cancan controls authorization.  For more details look at <a
+href="https://github.com/ryanb/cancan">github.com/ryanb/cancan</a></p>
 
 
+  </div>
+</div>
+<div class="tags">
   
 
+</div>
 
-  
+
+
+
+
 
   
     <h2>
@@ -120,6 +139,7 @@
     
   </span>
   
+  
     <span class="note title constructor">constructor</span>
   
   
@@ -129,9 +149,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-This method sets up the user&#8217;s abilities to view admin pages.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>This method sets up the user's abilities to view admin pages.</p>
 </div></span>
   
 </li>
@@ -145,19 +164,20 @@ This method sets up the user&#8217;s abilities to view admin pages.
   <h2>Constructor Details</h2>
   
     <div class="method_details first">
-  <p class="signature first" id="initialize-instance_method">
+  <h3 class="signature first" id="initialize-instance_method">
   
     - (<tt><span class='object_link'><a href="" title="AdminAbility (class)">AdminAbility</a></span></tt>) <strong>initialize</strong>(user) 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
-    <p>
-This method sets up the user&#8217;s abilities to view admin pages
-</p>
-<pre class="code">
-  look at https://github.com/ryanb/cancan for more info</pre>
+    
+<p>This method sets up the user's abilities to view admin pages</p>
+
+<pre class="code ruby"><code>look at https://github.com/ryanb/cancan for more info</code></pre>
 
 
   </div>
@@ -171,8 +191,6 @@ This method sets up the user&#8217;s abilities to view admin pages
       <pre class="lines">
 
 
-6
-7
 8
 9
 10
@@ -191,28 +209,30 @@ This method sets up the user&#8217;s abilities to view admin pages
 23
 24
 25
-26</pre>
+26
+27
+28</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/admin_ability.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'app/models/admin_ability.rb', line 8</span>
 
-<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id user'>user</span><span class='rparen'>)</span>
-  <span class='id user'>user</span> <span class='op'>||=</span> <span class='const'>User</span><span class='period'>.</span><span class='id new'>new</span> <span class='comment'># guest user will not be allowed in the admin section
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_user'>user</span> <span class='op'>||=</span> <span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='comment'># guest user will not be allowed in the admin section
 </span>
-  <span class='kw'>if</span> <span class='id user'>user</span><span class='period'>.</span><span class='id super_admin?'>super_admin?</span>
-    <span class='id can'>can</span> <span class='symbol'>:manage</span><span class='comma'>,</span> <span class='symbol'>:all</span>
-  <span class='kw'>elsif</span> <span class='id user'>user</span><span class='period'>.</span><span class='id admin?'>admin?</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_user'>user</span><span class='period'>.</span><span class='id identifier rubyid_super_admin?'>super_admin?</span>
+    <span class='id identifier rubyid_can'>can</span> <span class='symbol'>:manage</span><span class='comma'>,</span> <span class='symbol'>:all</span>
+  <span class='kw'>elsif</span> <span class='id identifier rubyid_user'>user</span><span class='period'>.</span><span class='id identifier rubyid_admin?'>admin?</span>
     <span class='comment'>#can :manage, :all
-</span>    <span class='id can'>can</span> <span class='symbol'>:read</span><span class='comma'>,</span> <span class='symbol'>:all</span>
-    <span class='id can'>can</span> <span class='symbol'>:view_users</span><span class='comma'>,</span> <span class='const'>User</span> <span class='kw'>do</span>
-      <span class='id user'>user</span><span class='period'>.</span><span class='id admin?'>admin?</span>
+</span>    <span class='id identifier rubyid_can'>can</span> <span class='symbol'>:read</span><span class='comma'>,</span> <span class='symbol'>:all</span>
+    <span class='id identifier rubyid_can'>can</span> <span class='symbol'>:view_users</span><span class='comma'>,</span> <span class='const'>User</span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_user'>user</span><span class='period'>.</span><span class='id identifier rubyid_admin?'>admin?</span>
     <span class='kw'>end</span>
     <span class='comment'>#authorize! :view_users, @user
-</span>    <span class='id can'>can</span> <span class='symbol'>:create_users</span><span class='comma'>,</span> <span class='const'>User</span> <span class='kw'>do</span>
-      <span class='id user'>user</span><span class='period'>.</span><span class='id super_admin?'>super_admin?</span>
+</span>    <span class='id identifier rubyid_can'>can</span> <span class='symbol'>:create_users</span><span class='comma'>,</span> <span class='const'>User</span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_user'>user</span><span class='period'>.</span><span class='id identifier rubyid_super_admin?'>super_admin?</span>
     <span class='kw'>end</span>
     <span class='comment'>#authorize! :create_users, @user
-</span>    <span class='id can'>can</span> <span class='symbol'>:create_orders</span><span class='comma'>,</span> <span class='const'>User</span>
+</span>    <span class='id identifier rubyid_can'>can</span> <span class='symbol'>:create_orders</span><span class='comma'>,</span> <span class='const'>User</span>
   <span class='kw'>else</span>
 
   <span class='kw'>end</span>
@@ -226,11 +246,11 @@ This method sets up the user&#8217;s abilities to view admin pages
 
 
 </div>
-    
+
     <div id="footer">
-  Generated on Tue Nov 29 10:08:56 2011 by 
+  Generated on Mon Jan 21 18:43:32 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.7.3 (ruby-1.9.2).
+  0.8.3 (ruby-1.9.3).
 </div>
 
   </body>

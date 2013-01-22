@@ -6,7 +6,7 @@
 <title>
   Class: OrderItem
   
-    &mdash; Documentation by YARD 0.7.3
+    &mdash; Documentation by YARD 0.8.3
   
 </title>
 
@@ -15,9 +15,11 @@
   <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  if (relpath != '') relpath += '/';
+  framesUrl = "frames.html#!" + escape(window.location.href);
 </script>
+
 
   <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
 
@@ -26,36 +28,41 @@
 
   </head>
   <body>
-    <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) document.body.className = 'frames';
-    </script>
-    
     <div id="header">
       <div id="menu">
   
-    <a href="_index.html">Index (O)</a> &raquo; 
+    <a href="_index.html">Index (O)</a> &raquo;
     
     
     <span class="title">OrderItem</span>
   
-  
+
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
       <div id="search">
   
-    <a id="class_list_link" href="#">Class List</a>
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
   
-    <a id="method_list_link" href="#">Method List</a>
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
   
-    <a id="file_list_link" href="#">File List</a>
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
   
 </div>
       <div class="clear"></div>
     </div>
-    
+
     <iframe id="search_frame"></iframe>
-    
+
     <div id="content"><h1>Class: OrderItem
   
   
@@ -94,12 +101,37 @@
 </dl>
 <div class="clear"></div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<h2>Schema Information</h2>
+
+<p>Table name: order_items</p>
+
+<pre class="code ruby"><code>id               :integer(4)      not null, primary key
+price            :decimal(8, 2)
+total            :decimal(8, 2)
+order_id         :integer(4)      not null
+variant_id       :integer(4)      not null
+state            :string(255)     not null
+tax_rate_id      :integer(4)
+shipping_rate_id :integer(4)
+shipment_id      :integer(4)
+created_at       :datetime
+updated_at       :datetime</code></pre>
 
 
+  </div>
+</div>
+<div class="tags">
   
 
+</div>
 
-  
+
+
+
+
 
   
     <h2>
@@ -123,11 +155,11 @@
   
   
   
+  
 
   
-    <span class="summary_desc"><div class='inline'><p>
-called in checkout process.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>called in checkout process.</p>
 </div></span>
   
 </li>
@@ -156,12 +188,12 @@ called in checkout process.
   
   
   
+  
 
   
-    <span class="summary_desc"><div class='inline'><p>
-this is the price after coupons and anything before calculating the price +
-tax.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>this is the price after coupons and anything before calculating the price +
+tax.</p>
 </div></span>
   
 </li>
@@ -181,11 +213,11 @@ tax.
   
   
   
+  
 
   
-    <span class="summary_desc"><div class='inline'><p>
-the VAT charge on an item.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>the VAT charge on an item.</p>
 </div></span>
   
 </li>
@@ -205,11 +237,11 @@ the VAT charge on an item.
   
   
   
+  
 
   
-    <span class="summary_desc"><div class='inline'><p>
-the amount of an item if there were zero VAT.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>the amount of an item if there were zero VAT.</p>
 </div></span>
   
 </li>
@@ -229,11 +261,11 @@ the amount of an item if there were zero VAT.
   
   
   
+  
 
   
-    <span class="summary_desc"><div class='inline'><p>
-forces the order to be re-calculated.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>forces the order to be re-calculated.</p>
 </div></span>
   
 </li>
@@ -253,11 +285,11 @@ forces the order to be re-calculated.
   
   
   
+  
 
   
-    <span class="summary_desc"><div class='inline'><p>
-this is the price after coupons and taxes.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>this is the price after coupons, deals and sales.</p>
 </div></span>
   
 </li>
@@ -277,12 +309,56 @@ this is the price after coupons and taxes.
   
   
   
+  
 
   
-    <span class="summary_desc"><div class='inline'><p>
-this is the price after coupons and taxes.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>this is the price after coupons and taxes.</p>
 </div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#product_type-instance_method" title="#product_type (instance method)">- (Object) <strong>product_type</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#product_type_ids-instance_method" title="#product_type_ids (instance method)">- (Object) <strong>product_type_ids</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -301,13 +377,57 @@ this is the price after coupons and taxes.
   
   
   
+  
 
   
-    <span class="summary_desc"><div class='inline'><p>
-determines if the order item has all the attributes set and thus you can
-now determine the final total.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>determines if the order item has all the attributes set and thus you can
+now determine the final total.</p>
 </div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sale_at-instance_method" title="#sale_at (instance method)">- (Object) <strong>sale_at</strong>(at = Time.zone.now) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sale_price-instance_method" title="#sale_price (instance method)">- (Object) <strong>sale_price</strong>(at) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -320,6 +440,7 @@ now determine the final total.
 
     
   </span>
+  
   
   
   
@@ -347,11 +468,11 @@ now determine the final total.
   
   
   
+  
 
   
-    <span class="summary_desc"><div class='inline'><p>
-if something changes to the order item and you dont want to recalculate.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>if something changes to the order item and you dont want to recalculate.</p>
 </div></span>
   
 </li>
@@ -365,6 +486,7 @@ if something changes to the order item and you dont want to recalculate.
 
     
   </span>
+  
   
   
   
@@ -392,11 +514,11 @@ if something changes to the order item and you dont want to recalculate.
   
   
   
+  
 
   
-    <span class="summary_desc"><div class='inline'><p>
-if the order item has been shipped it will return true.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>if the order item has been shipped it will return true.</p>
 </div></span>
   
 </li>
@@ -416,11 +538,11 @@ if the order item has been shipped it will return true.
   
   
   
+  
 
   
-    <span class="summary_desc"><div class='inline'><p>
-shipping method for the order item.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>shipping method for the order item.</p>
 </div></span>
   
 </li>
@@ -440,11 +562,11 @@ shipping method for the order item.
   
   
   
+  
 
   
-    <span class="summary_desc"><div class='inline'><p>
-shipping method id for the order item (use to reduce SQL calls).
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>shipping method id for the order item (use to reduce SQL calls).</p>
 </div></span>
   
 </li>
@@ -458,6 +580,7 @@ shipping method id for the order item (use to reduce SQL calls).
 
     
   </span>
+  
   
   
   
@@ -485,11 +608,11 @@ shipping method id for the order item (use to reduce SQL calls).
   
   
   
+  
 
   
-    <span class="summary_desc"><div class='inline'><p>
-the tax charge on an item.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>the tax charge on an item.</p>
 </div></span>
   
 </li>
@@ -503,29 +626,30 @@ the tax charge on an item.
 
   <div id="class_method_details" class="method_details_list">
     <h2>Class Method Details</h2>
-    
+
     
       <div class="method_details first">
-  <p class="signature first" id="order_items_in_cart-class_method">
+  <h3 class="signature first" id="order_items_in_cart-class_method">
   
     + (<tt><span class='object_link'><a href="" title="OrderItem (class)">OrderItem</a></span></tt>) <strong>order_items_in_cart</strong>(order_id) 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
-    <p>
-called in checkout process. will give you the &#8216;quantity&#8217;,
-&#8216;sum of all the prices&#8217; and &#8216;sum of all the totals&#8217;
-</p>
-<pre class="code">
- it is better to do the math in SQL than ruby</pre>
+    
+<p>called in checkout process. will give you the 'quantity', 'sum of all the
+prices' and 'sum of all the totals'</p>
+
+<pre class="code ruby"><code>it is better to do the math in SQL than ruby</code></pre>
 
 
   </div>
 </div>
 <div class="tags">
-  <h3>Parameters:</h3>
+  <p class="tag_title">Parameters:</p>
 <ul class="param">
   
     <li>
@@ -541,7 +665,7 @@ called in checkout process. will give you the &#8216;quantity&#8217;,
   
 </ul>
 
-<h3>Returns:</h3>
+<p class="tag_title">Returns:</p>
 <ul class="return">
   
     <li>
@@ -552,10 +676,9 @@ called in checkout process. will give you the &#8216;quantity&#8217;,
       
       
         &mdash;
-        <div class='inline'><p>
-Object has addional attributes of [sum_price, sum_total,
-shipping_category_id, and quantity]
-</p>
+        <div class='inline'>
+<p>Object has addional attributes of [sum_price, sum_total,
+shipping_category_id, and quantity]</p>
 </div>
       
     </li>
@@ -568,27 +691,45 @@ shipping_category_id, and quantity]
       <pre class="lines">
 
 
-69
-70
-71
-72
-73
-74
-75
-76
-77</pre>
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/order_item.rb', line 69</span>
+      <pre class="code"><span class="info file"># File 'app/models/order_item.rb', line 100</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id order_items_in_cart'>order_items_in_cart</span><span class='lparen'>(</span><span class='id order_id'>order_id</span><span class='rparen'>)</span>
-  <span class='id find'>find</span><span class='lparen'>(</span><span class='symbol'>:all</span><span class='comma'>,</span> <span class='symbol'>:joins</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span><span class='symbol'>:variant</span> <span class='op'>=&gt;</span> <span class='symbol'>:product</span> <span class='rbrace'>}</span><span class='comma'>,</span>
-             <span class='symbol'>:conditions</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span> <span class='symbol'>:order_items</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span> <span class='symbol'>:order_id</span> <span class='op'>=&gt;</span> <span class='id order_id'>order_id</span><span class='rbrace'>}</span><span class='rbrace'>}</span><span class='comma'>,</span>
-             <span class='symbol'>:select</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>order_items.*, count(*) as quantity,
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_order_items_in_cart'>order_items_in_cart</span><span class='lparen'>(</span><span class='id identifier rubyid_order_id'>order_id</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='symbol'>:all</span><span class='comma'>,</span> <span class='symbol'>:joins</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span><span class='symbol'>:variant</span> <span class='op'>=&gt;</span> <span class='symbol'>:product</span> <span class='rbrace'>}</span><span class='comma'>,</span>
+             <span class='symbol'>:conditions</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span> <span class='symbol'>:order_items</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span> <span class='symbol'>:order_id</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_order_id'>order_id</span><span class='rbrace'>}</span><span class='rbrace'>}</span><span class='comma'>,</span>
+             <span class='symbol'>:select</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>order_items.id, order_items.order_id, order_items.shipping_rate_id, order_items.state, order_items.tax_rate_id, order_items.price, order_items.total, order_items.variant_id,
+                         products.shipping_category_id,
+                                        count(*) as quantity,
                                         products.shipping_category_id as shipping_category_id,
                                         SUM(order_items.price) as sum_price,
                                         SUM(order_items.total) as sum_total</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-             <span class='symbol'>:group</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>order_items.variant_id</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+             <span class='symbol'>:group</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>order_items.id,
+                        products.shipping_category_id,
+                        order_items.order_id,
+                        order_items.shipping_rate_id,
+                        order_items.state,
+                        order_items.tax_rate_id,
+                        order_items.price,
+                        order_items.total, order_items.variant_id</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -599,29 +740,30 @@ shipping_category_id, and quantity]
 
   <div id="instance_method_details" class="method_details_list">
     <h2>Instance Method Details</h2>
-    
+
     
       <div class="method_details first">
-  <p class="signature first" id="adjusted_price-instance_method">
+  <h3 class="signature first" id="adjusted_price-instance_method">
   
     - (<tt>Float</tt>) <strong>adjusted_price</strong>(coupon = nil) 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
-    <p>
-this is the price after coupons and anything before calculating the price +
-tax
-</p>
-<pre class="code">
- in the future coupons and discounts could change this value</pre>
+    
+<p>this is the price after coupons and anything before calculating the price +
+tax</p>
+
+<pre class="code ruby"><code>in the future coupons and discounts could change this value</code></pre>
 
 
   </div>
 </div>
 <div class="tags">
-  <h3>Parameters:</h3>
+  <p class="tag_title">Parameters:</p>
 <ul class="param">
   
     <li>
@@ -637,7 +779,7 @@ tax
   
 </ul>
 
-<h3>Returns:</h3>
+<p class="tag_title">Returns:</p>
 <ul class="return">
   
     <li>
@@ -648,9 +790,8 @@ tax
       
       
         &mdash;
-        <div class='inline'><p>
-this is the price that the tax will be applied to.
-</p>
+        <div class='inline'>
+<p>this is the price that the tax will be applied to.</p>
 </div>
       
     </li>
@@ -663,23 +804,21 @@ this is the price that the tax will be applied to.
       <pre class="lines">
 
 
-115
-116
-117
-118
-119
-120
-121</pre>
+156
+157
+158
+159
+160
+161</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/order_item.rb', line 115</span>
+      <pre class="code"><span class="info file"># File 'app/models/order_item.rb', line 156</span>
 
-<span class='kw'>def</span> <span class='id adjusted_price'>adjusted_price</span><span class='lparen'>(</span><span class='id coupon'>coupon</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_adjusted_price'>adjusted_price</span><span class='lparen'>(</span><span class='id identifier rubyid_coupon'>coupon</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='comment'>## coupon credit is calculated at the order level but because taxes we need to apply it now
-</span>  <span class='comment'># =&gt; this calculation will be complete in the version of Hadean
-</span>  <span class='id coupon_credit'>coupon_credit</span> <span class='op'>=</span> <span class='id coupon'>coupon</span> <span class='op'>?</span> <span class='id coupon'>coupon</span><span class='period'>.</span><span class='id value'>value</span><span class='lparen'>(</span><span class='id variant'>variant</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='float'>0.0</span>
+</span>  <span class='id identifier rubyid_coupon_credit'>coupon_credit</span> <span class='op'>=</span> <span class='id identifier rubyid_coupon'>coupon</span> <span class='op'>?</span> <span class='id identifier rubyid_coupon'>coupon</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id identifier rubyid_sale_price'>sale_price</span><span class='lparen'>(</span><span class='id identifier rubyid_order'>order</span><span class='period'>.</span><span class='id identifier rubyid_transaction_time'>transaction_time</span><span class='rparen'>)</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_order'>order</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='float'>0.0</span>
 
-  <span class='kw'>self</span><span class='period'>.</span><span class='id price'>price</span> <span class='op'>-</span> <span class='id coupon_credit'>coupon_credit</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_price'>price</span> <span class='op'>-</span> <span class='id identifier rubyid_coupon_credit'>coupon_credit</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -687,23 +826,24 @@ this is the price that the tax will be applied to.
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="amount_of_charge_is_vat-instance_method">
+  <h3 class="signature " id="amount_of_charge_is_vat-instance_method">
   
     - (<tt>Float</tt>) <strong>amount_of_charge_is_vat</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
-    <p>
-the VAT charge on an item
-</p>
+    
+<p>the VAT charge on an item</p>
 
 
   </div>
 </div>
 <div class="tags">
-  <h3>Parameters:</h3>
+  <p class="tag_title">Parameters:</p>
 <ul class="param">
   
     <li>
@@ -719,7 +859,7 @@ the VAT charge on an item
   
 </ul>
 
-<h3>Returns:</h3>
+<p class="tag_title">Returns:</p>
 <ul class="return">
   
     <li>
@@ -730,9 +870,8 @@ the VAT charge on an item
       
       
         &mdash;
-        <div class='inline'><p>
-tax charge on the item.
-</p>
+        <div class='inline'>
+<p>tax charge on the item.</p>
 </div>
       
     </li>
@@ -745,17 +884,17 @@ tax charge on the item.
       <pre class="lines">
 
 
-159
-160
-161
-162</pre>
+208
+209
+210
+211</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/order_item.rb', line 159</span>
+      <pre class="code"><span class="info file"># File 'app/models/order_item.rb', line 208</span>
 
-<span class='kw'>def</span> <span class='id amount_of_charge_is_vat'>amount_of_charge_is_vat</span>
-  <span class='id vat_percentage'>vat_percentage</span> <span class='op'>=</span> <span class='id tax_rate'>tax_rate</span><span class='period'>.</span><span class='id try'>try</span><span class='lparen'>(</span><span class='symbol'>:vat_percentage</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id tax_rate'>tax_rate</span><span class='period'>.</span><span class='id vat_percentage'>vat_percentage</span> <span class='op'>:</span> <span class='float'>0.0</span>
-  <span class='lparen'>(</span><span class='id adjusted_price'>adjusted_price</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='id vat_percentage'>vat_percentage</span> <span class='op'>/</span> <span class='lparen'>(</span><span class='float'>100.0</span> <span class='op'>+</span> <span class='id vat_percentage'>vat_percentage</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id round_at'>round_at</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_amount_of_charge_is_vat'>amount_of_charge_is_vat</span>
+  <span class='id identifier rubyid_vat_percentage'>vat_percentage</span> <span class='op'>=</span> <span class='id identifier rubyid_tax_rate'>tax_rate</span><span class='period'>.</span><span class='id identifier rubyid_try'>try</span><span class='lparen'>(</span><span class='symbol'>:vat_percentage</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id identifier rubyid_tax_rate'>tax_rate</span><span class='period'>.</span><span class='id identifier rubyid_vat_percentage'>vat_percentage</span> <span class='op'>:</span> <span class='float'>0.0</span>
+  <span class='lparen'>(</span><span class='id identifier rubyid_adjusted_price'>adjusted_price</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='id identifier rubyid_vat_percentage'>vat_percentage</span> <span class='op'>/</span> <span class='lparen'>(</span><span class='float'>100.0</span> <span class='op'>+</span> <span class='id identifier rubyid_vat_percentage'>vat_percentage</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_round_at'>round_at</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -763,23 +902,24 @@ tax charge on the item.
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="amount_of_charge_without_vat-instance_method">
+  <h3 class="signature " id="amount_of_charge_without_vat-instance_method">
   
     - (<tt>Float</tt>) <strong>amount_of_charge_without_vat</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
-    <p>
-the amount of an item if there were zero VAT
-</p>
+    
+<p>the amount of an item if there were zero VAT</p>
 
 
   </div>
 </div>
 <div class="tags">
-  <h3>Parameters:</h3>
+  <p class="tag_title">Parameters:</p>
 <ul class="param">
   
     <li>
@@ -795,7 +935,7 @@ the amount of an item if there were zero VAT
   
 </ul>
 
-<h3>Returns:</h3>
+<p class="tag_title">Returns:</p>
 <ul class="return">
   
     <li>
@@ -806,9 +946,8 @@ the amount of an item if there were zero VAT
       
       
         &mdash;
-        <div class='inline'><p>
-tax charge on the item.
-</p>
+        <div class='inline'>
+<p>tax charge on the item.</p>
 </div>
       
     </li>
@@ -821,17 +960,17 @@ tax charge on the item.
       <pre class="lines">
 
 
-168
-169
-170
-171</pre>
+217
+218
+219
+220</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/order_item.rb', line 168</span>
+      <pre class="code"><span class="info file"># File 'app/models/order_item.rb', line 217</span>
 
-<span class='kw'>def</span> <span class='id amount_of_charge_without_vat'>amount_of_charge_without_vat</span>
-  <span class='id vat_percentage'>vat_percentage</span> <span class='op'>=</span> <span class='id tax_rate'>tax_rate</span><span class='period'>.</span><span class='id try'>try</span><span class='lparen'>(</span><span class='symbol'>:vat_percentage</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id tax_rate'>tax_rate</span><span class='period'>.</span><span class='id vat_percentage'>vat_percentage</span> <span class='op'>:</span> <span class='float'>0.0</span>
-  <span class='lparen'>(</span><span class='float'>100.0</span> <span class='op'>*</span> <span class='id adjusted_price'>adjusted_price</span> <span class='op'>/</span> <span class='lparen'>(</span><span class='float'>100.0</span> <span class='op'>+</span> <span class='id vat_percentage'>vat_percentage</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id round_at'>round_at</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_amount_of_charge_without_vat'>amount_of_charge_without_vat</span>
+  <span class='id identifier rubyid_vat_percentage'>vat_percentage</span> <span class='op'>=</span> <span class='id identifier rubyid_tax_rate'>tax_rate</span><span class='period'>.</span><span class='id identifier rubyid_try'>try</span><span class='lparen'>(</span><span class='symbol'>:vat_percentage</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id identifier rubyid_tax_rate'>tax_rate</span><span class='period'>.</span><span class='id identifier rubyid_vat_percentage'>vat_percentage</span> <span class='op'>:</span> <span class='float'>0.0</span>
+  <span class='lparen'>(</span><span class='float'>100.0</span> <span class='op'>*</span> <span class='id identifier rubyid_adjusted_price'>adjusted_price</span> <span class='op'>/</span> <span class='lparen'>(</span><span class='float'>100.0</span> <span class='op'>+</span> <span class='id identifier rubyid_vat_percentage'>vat_percentage</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_round_at'>round_at</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -839,24 +978,25 @@ tax charge on the item.
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="calculate_order-instance_method">
+  <h3 class="signature " id="calculate_order-instance_method">
   
     - (<tt>none</tt>) <strong>calculate_order</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
-    <p>
-forces the order to be re-calculated.  If the order item has changed then
-the order totals need to be adjusted
-</p>
+    
+<p>forces the order to be re-calculated.  If the order item has changed then
+the order totals need to be adjusted</p>
 
 
   </div>
 </div>
 <div class="tags">
-  <h3>Parameters:</h3>
+  <p class="tag_title">Parameters:</p>
 <ul class="param">
   
     <li>
@@ -872,7 +1012,7 @@ the order totals need to be adjusted
   
 </ul>
 
-<h3>Returns:</h3>
+<p class="tag_title">Returns:</p>
 <ul class="return">
   
     <li>
@@ -892,22 +1032,22 @@ the order totals need to be adjusted
       <pre class="lines">
 
 
-83
-84
-85
-86
-87
-88
-89</pre>
+123
+124
+125
+126
+127
+128
+129</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/order_item.rb', line 83</span>
+      <pre class="code"><span class="info file"># File 'app/models/order_item.rb', line 123</span>
 
-<span class='kw'>def</span> <span class='id calculate_order'>calculate_order</span>
-  <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id ready_to_calculate?'>ready_to_calculate?</span> <span class='op'>&amp;&amp;</span>
-      <span class='lparen'>(</span><span class='id shipping_rate_id'>shipping_rate_id</span> <span class='op'>!=</span> <span class='ivar'>@beginning_shipping_rate_id</span> <span class='op'>||</span> <span class='id tax_rate_id'>tax_rate_id</span> <span class='op'>!=</span> <span class='ivar'>@beginning_tax_rate_id</span><span class='rparen'>)</span>
-    <span class='id set_beginning_values'>set_beginning_values</span>
-    <span class='id order'>order</span><span class='period'>.</span><span class='id calculate_totals'>calculate_totals</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_calculate_order'>calculate_order</span>
+  <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_ready_to_calculate?'>ready_to_calculate?</span> <span class='op'>&amp;&amp;</span>
+      <span class='lparen'>(</span><span class='id identifier rubyid_shipping_rate_id'>shipping_rate_id</span> <span class='op'>!=</span> <span class='ivar'>@beginning_shipping_rate_id</span> <span class='op'>||</span> <span class='id identifier rubyid_tax_rate_id'>tax_rate_id</span> <span class='op'>!=</span> <span class='ivar'>@beginning_tax_rate_id</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_set_beginning_values'>set_beginning_values</span>
+    <span class='id identifier rubyid_order'>order</span><span class='period'>.</span><span class='id identifier rubyid_calculate_totals'>calculate_totals</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -916,26 +1056,27 @@ the order totals need to be adjusted
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="calculate_total-instance_method">
+  <h3 class="signature " id="calculate_total-instance_method">
   
     - (<tt>Float</tt>) <strong>calculate_total</strong>(coupon = nil) 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
-    <p>
-this is the price after coupons and taxes
-</p>
-<pre class="code">
-  * this method does not save it just sets the value of total.
-  * Thus allowing you to save the whole order with one opperation</pre>
+    
+<p>this is the price after coupons, deals and sales</p>
+
+<pre class="code ruby"><code>* this method does not save it just sets the value of total.
+* Thus allowing you to save the whole order with one opperation</code></pre>
 
 
   </div>
 </div>
 <div class="tags">
-  <h3>Parameters:</h3>
+  <p class="tag_title">Parameters:</p>
 <ul class="param">
   
     <li>
@@ -951,7 +1092,7 @@ this is the price after coupons and taxes
   
 </ul>
 
-<h3>Returns:</h3>
+<p class="tag_title">Returns:</p>
 <ul class="return">
   
     <li>
@@ -962,9 +1103,8 @@ this is the price after coupons and taxes
       
       
         &mdash;
-        <div class='inline'><p>
-this is the total of the item after taxes and coupons&#8230;
-</p>
+        <div class='inline'>
+<p>this is the total of the item after coupons/deals/sales...</p>
 </div>
       
     </li>
@@ -977,19 +1117,19 @@ this is the total of the item after taxes and coupons&#8230;
       <pre class="lines">
 
 
-140
-141
-142
-143
-144</pre>
+189
+190
+191
+192
+193</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/order_item.rb', line 140</span>
+      <pre class="code"><span class="info file"># File 'app/models/order_item.rb', line 189</span>
 
-<span class='kw'>def</span> <span class='id calculate_total'>calculate_total</span><span class='lparen'>(</span><span class='id coupon'>coupon</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_calculate_total'>calculate_total</span><span class='lparen'>(</span><span class='id identifier rubyid_coupon'>coupon</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='comment'># shipping charges are calculated in order.rb
 </span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id total'>total</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id adjusted_price'>adjusted_price</span><span class='lparen'>(</span><span class='id coupon'>coupon</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='id tax_charge'>tax_charge</span><span class='rparen'>)</span><span class='period'>.</span><span class='id round_at'>round_at</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_total'>total</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id identifier rubyid_adjusted_price'>adjusted_price</span><span class='lparen'>(</span><span class='id identifier rubyid_coupon'>coupon</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_round_at'>round_at</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -997,25 +1137,26 @@ this is the total of the item after taxes and coupons&#8230;
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="item_total-instance_method">
+  <h3 class="signature " id="item_total-instance_method">
   
     - (<tt>Float</tt>) <strong>item_total</strong>(coupon = nil) 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
-    <p>
-this is the price after coupons and taxes
-</p>
-<pre class="code">
-  * this return total if has not been calculated, otherwise calculates the total.</pre>
+    
+<p>this is the price after coupons and taxes</p>
+
+<pre class="code ruby"><code>* this return total if has not been calculated, otherwise calculates the total.</code></pre>
 
 
   </div>
 </div>
 <div class="tags">
-  <h3>Parameters:</h3>
+  <p class="tag_title">Parameters:</p>
 <ul class="param">
   
     <li>
@@ -1031,7 +1172,7 @@ this is the price after coupons and taxes
   
 </ul>
 
-<h3>Returns:</h3>
+<p class="tag_title">Returns:</p>
 <ul class="return">
   
     <li>
@@ -1042,9 +1183,8 @@ this is the price after coupons and taxes
       
       
         &mdash;
-        <div class='inline'><p>
-this is the total of the item after taxes and coupons&#8230;
-</p>
+        <div class='inline'>
+<p>this is the total of the item after taxes and coupons...</p>
 </div>
       
     </li>
@@ -1057,19 +1197,19 @@ this is the total of the item after taxes and coupons&#8230;
       <pre class="lines">
 
 
-128
-129
-130
-131
-132</pre>
+177
+178
+179
+180
+181</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/order_item.rb', line 128</span>
+      <pre class="code"><span class="info file"># File 'app/models/order_item.rb', line 177</span>
 
-<span class='kw'>def</span> <span class='id item_total'>item_total</span><span class='lparen'>(</span><span class='id coupon'>coupon</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_item_total'>item_total</span><span class='lparen'>(</span><span class='id identifier rubyid_coupon'>coupon</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='comment'># shipping charges are calculated in order.rb
 </span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id total'>total</span> <span class='op'>||=</span> <span class='id calculate_total'>calculate_total</span><span class='lparen'>(</span><span class='id coupon'>coupon</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_total'>total</span> <span class='op'>||=</span> <span class='id identifier rubyid_calculate_total'>calculate_total</span><span class='lparen'>(</span><span class='id identifier rubyid_coupon'>coupon</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1077,24 +1217,85 @@ this is the total of the item after taxes and coupons&#8230;
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="ready_to_calculate?-instance_method">
+  <h3 class="signature " id="product_type-instance_method">
+  
+    - (<tt>Object</tt>) <strong>product_type</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+52
+53
+54</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/order_item.rb', line 52</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_product_type'>product_type</span>
+  <span class='id identifier rubyid_variant'>variant</span><span class='period'>.</span><span class='id identifier rubyid_product'>product</span><span class='period'>.</span><span class='id identifier rubyid_product_type'>product_type</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="product_type_ids-instance_method">
+  
+    - (<tt>Object</tt>) <strong>product_type_ids</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+56
+57
+58</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/order_item.rb', line 56</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_product_type_ids'>product_type_ids</span>
+  <span class='id identifier rubyid_product_type'>product_type</span><span class='period'>.</span><span class='id identifier rubyid_self_and_ancestors'>self_and_ancestors</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:id</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ready_to_calculate?-instance_method">
   
     - (<tt>Boolean</tt>) <strong>ready_to_calculate?</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
-    <p>
-determines if the order item has all the attributes set and thus you can
-now determine the final total
-</p>
+    
+<p>determines if the order item has all the attributes set and thus you can
+now determine the final total</p>
 
 
   </div>
 </div>
 <div class="tags">
-  <h3>Parameters:</h3>
+  <p class="tag_title">Parameters:</p>
 <ul class="param">
   
     <li>
@@ -1110,7 +1311,7 @@ now determine the final total
   
 </ul>
 
-<h3>Returns:</h3>
+<p class="tag_title">Returns:</p>
 <ul class="return">
   
     <li>
@@ -1130,15 +1331,15 @@ now determine the final total
       <pre class="lines">
 
 
-106
-107
-108</pre>
+146
+147
+148</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/order_item.rb', line 106</span>
+      <pre class="code"><span class="info file"># File 'app/models/order_item.rb', line 146</span>
 
-<span class='kw'>def</span> <span class='id ready_to_calculate?'>ready_to_calculate?</span>
-  <span class='id shipping_rate_id'>shipping_rate_id</span> <span class='op'>&amp;&amp;</span> <span class='id tax_rate_id'>tax_rate_id</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_ready_to_calculate?'>ready_to_calculate?</span>
+  <span class='id identifier rubyid_shipping_rate_id'>shipping_rate_id</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_tax_rate_id'>tax_rate_id</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1146,31 +1347,95 @@ now determine the final total
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="set_beginning_values-instance_method">
+  <h3 class="signature " id="sale_at-instance_method">
   
-    - (<tt>Object</tt>) <strong>set_beginning_values</strong> 
+    - (<tt>Object</tt>) <strong>sale_at</strong>(at = Time.zone.now) 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-17
-18
-19
-20
-21</pre>
+168
+169
+170</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/order_item.rb', line 17</span>
+      <pre class="code"><span class="info file"># File 'app/models/order_item.rb', line 168</span>
 
-<span class='kw'>def</span> <span class='id set_beginning_values'>set_beginning_values</span>
-  <span class='ivar'>@beginning_tax_rate_id</span>      <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id tax_rate_id'>tax_rate_id</span>      <span class='kw'>rescue</span> <span class='ivar'>@beginning_tax_rate_id</span> <span class='op'>=</span> <span class='kw'>nil</span> <span class='comment'># this stores the initial value of the tax_rate
-</span>  <span class='ivar'>@beginning_shipping_rate_id</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id shipping_rate_id'>shipping_rate_id</span> <span class='kw'>rescue</span> <span class='ivar'>@beginning_shipping_rate_id</span> <span class='op'>=</span> <span class='kw'>nil</span> <span class='comment'># this stores the initial value of the tax_rate
-</span>  <span class='ivar'>@beginning_total</span>            <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id total'>total</span>            <span class='kw'>rescue</span> <span class='ivar'>@beginning_total</span> <span class='op'>=</span> <span class='kw'>nil</span> <span class='comment'># this stores the initial value of the total
+<span class='kw'>def</span> <span class='id identifier rubyid_sale_at'>sale_at</span><span class='lparen'>(</span><span class='id identifier rubyid_at'>at</span> <span class='op'>=</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_zone'>zone</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='rparen'>)</span>
+  <span class='const'>Sale</span><span class='period'>.</span><span class='id identifier rubyid_for'>for</span><span class='lparen'>(</span><span class='id identifier rubyid_variant'>variant</span><span class='period'>.</span><span class='id identifier rubyid_product_id'>product_id</span><span class='comma'>,</span> <span class='id identifier rubyid_at'>at</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="sale_price-instance_method">
+  
+    - (<tt>Object</tt>) <strong>sale_price</strong>(at) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+163
+164
+165
+166</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/order_item.rb', line 163</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_sale_price'>sale_price</span><span class='lparen'>(</span><span class='id identifier rubyid_at'>at</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_sale'>sale</span> <span class='op'>=</span> <span class='id identifier rubyid_sale_at'>sale_at</span><span class='lparen'>(</span><span class='id identifier rubyid_at'>at</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_sale'>sale</span> <span class='op'>?</span> <span class='lparen'>(</span> <span class='lparen'>(</span><span class='float'>1.0</span> <span class='op'>-</span> <span class='id identifier rubyid_sale'>sale</span><span class='period'>.</span><span class='id identifier rubyid_percent_off'>percent_off</span><span class='rparen'>)</span> <span class='op'>*</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_price'>price</span> <span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_round_at'>round_at</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_price'>price</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="set_beginning_values-instance_method">
+  
+    - (<tt>Object</tt>) <strong>set_beginning_values</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+34
+35
+36
+37
+38</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/order_item.rb', line 34</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_set_beginning_values'>set_beginning_values</span>
+  <span class='ivar'>@beginning_tax_rate_id</span>      <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_tax_rate_id'>tax_rate_id</span>      <span class='kw'>rescue</span> <span class='ivar'>@beginning_tax_rate_id</span> <span class='op'>=</span> <span class='kw'>nil</span> <span class='comment'># this stores the initial value of the tax_rate
+</span>  <span class='ivar'>@beginning_shipping_rate_id</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_shipping_rate_id'>shipping_rate_id</span> <span class='kw'>rescue</span> <span class='ivar'>@beginning_shipping_rate_id</span> <span class='op'>=</span> <span class='kw'>nil</span> <span class='comment'># this stores the initial value of the tax_rate
+</span>  <span class='ivar'>@beginning_total</span>            <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_total'>total</span>            <span class='kw'>rescue</span> <span class='ivar'>@beginning_total</span> <span class='op'>=</span> <span class='kw'>nil</span> <span class='comment'># this stores the initial value of the total
 </span><span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1178,27 +1443,28 @@ now determine the final total
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="set_order_calculated_at_to_nil-instance_method">
+  <h3 class="signature " id="set_order_calculated_at_to_nil-instance_method">
   
     - (<tt>none</tt>) <strong>set_order_calculated_at_to_nil</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
-    <p>
-if something changes to the order item and you dont want to recalculate
-</p>
-<pre class="code">
-  (maybe because you are chnging several more things) then
-   this method will mark the calculated at to be nil and thus tell the order that
-   it needs to calculate the total again</pre>
+    
+<p>if something changes to the order item and you dont want to recalculate</p>
+
+<pre class="code ruby"><code>(maybe because you are chnging several more things) then
+ this method will mark the calculated at to be nil and thus tell the order that
+ it needs to calculate the total again</code></pre>
 
 
   </div>
 </div>
 <div class="tags">
-  <h3>Parameters:</h3>
+  <p class="tag_title">Parameters:</p>
 <ul class="param">
   
     <li>
@@ -1214,7 +1480,7 @@ if something changes to the order item and you dont want to recalculate
   
 </ul>
 
-<h3>Returns:</h3>
+<p class="tag_title">Returns:</p>
 <ul class="return">
   
     <li>
@@ -1234,15 +1500,15 @@ if something changes to the order item and you dont want to recalculate
       <pre class="lines">
 
 
-98
-99
-100</pre>
+138
+139
+140</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/order_item.rb', line 98</span>
+      <pre class="code"><span class="info file"># File 'app/models/order_item.rb', line 138</span>
 
-<span class='kw'>def</span> <span class='id set_order_calculated_at_to_nil'>set_order_calculated_at_to_nil</span>
-  <span class='id order'>order</span><span class='period'>.</span><span class='id update_attribute'>update_attribute</span><span class='lparen'>(</span><span class='symbol'>:calculated_at</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_set_order_calculated_at_to_nil'>set_order_calculated_at_to_nil</span>
+  <span class='id identifier rubyid_order'>order</span><span class='period'>.</span><span class='id identifier rubyid_update_attribute'>update_attribute</span><span class='lparen'>(</span><span class='symbol'>:calculated_at</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1250,27 +1516,29 @@ if something changes to the order item and you dont want to recalculate
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="ship_category_id-instance_method">
+  <h3 class="signature " id="ship_category_id-instance_method">
   
     - (<tt>Object</tt>) <strong>ship_category_id</strong> 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-54
-55
-56</pre>
+85
+86
+87</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/order_item.rb', line 54</span>
+      <pre class="code"><span class="info file"># File 'app/models/order_item.rb', line 85</span>
 
-<span class='kw'>def</span> <span class='id ship_category_id'>ship_category_id</span>
-  <span class='id variant'>variant</span><span class='period'>.</span><span class='id product'>product</span><span class='period'>.</span><span class='id shipping_category_id'>shipping_category_id</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_ship_category_id'>ship_category_id</span>
+  <span class='id identifier rubyid_variant'>variant</span><span class='period'>.</span><span class='id identifier rubyid_product'>product</span><span class='period'>.</span><span class='id identifier rubyid_shipping_category_id'>shipping_category_id</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1278,23 +1546,24 @@ if something changes to the order item and you dont want to recalculate
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="shipped?-instance_method">
+  <h3 class="signature " id="shipped?-instance_method">
   
     - (<tt>Boolean</tt>) <strong>shipped?</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
-    <p>
-if the order item has been shipped it will return true
-</p>
+    
+<p>if the order item has been shipped it will return true</p>
 
 
   </div>
 </div>
 <div class="tags">
-  <h3>Parameters:</h3>
+  <p class="tag_title">Parameters:</p>
 <ul class="param">
   
     <li>
@@ -1310,7 +1579,7 @@ if the order item has been shipped it will return true
   
 </ul>
 
-<h3>Returns:</h3>
+<p class="tag_title">Returns:</p>
 <ul class="return">
   
     <li>
@@ -1330,15 +1599,15 @@ if the order item has been shipped it will return true
       <pre class="lines">
 
 
-33
-34
-35</pre>
+64
+65
+66</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/order_item.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'app/models/order_item.rb', line 64</span>
 
-<span class='kw'>def</span> <span class='id shipped?'>shipped?</span>
-  <span class='id shipment_id?'>shipment_id?</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_shipped?'>shipped?</span>
+  <span class='id identifier rubyid_shipment_id?'>shipment_id?</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1346,23 +1615,24 @@ if the order item has been shipped it will return true
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="shipping_method-instance_method">
+  <h3 class="signature " id="shipping_method-instance_method">
   
     - (<tt><span class='object_link'><a href="ShippingMethod.html" title="ShippingMethod (class)">ShippingMethod</a></span></tt>) <strong>shipping_method</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
-    <p>
-shipping method for the order item
-</p>
+    
+<p>shipping method for the order item</p>
 
 
   </div>
 </div>
 <div class="tags">
-  <h3>Parameters:</h3>
+  <p class="tag_title">Parameters:</p>
 <ul class="param">
   
     <li>
@@ -1378,7 +1648,7 @@ shipping method for the order item
   
 </ul>
 
-<h3>Returns:</h3>
+<p class="tag_title">Returns:</p>
 <ul class="return">
   
     <li>
@@ -1398,15 +1668,15 @@ shipping method for the order item
       <pre class="lines">
 
 
-41
-42
-43</pre>
+72
+73
+74</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/order_item.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'app/models/order_item.rb', line 72</span>
 
-<span class='kw'>def</span> <span class='id shipping_method'>shipping_method</span>
-  <span class='id shipping_rate'>shipping_rate</span><span class='period'>.</span><span class='id shipping_method'>shipping_method</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_shipping_method'>shipping_method</span>
+  <span class='id identifier rubyid_shipping_rate'>shipping_rate</span><span class='period'>.</span><span class='id identifier rubyid_shipping_method'>shipping_method</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1414,25 +1684,26 @@ shipping method for the order item
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="shipping_method_id-instance_method">
+  <h3 class="signature " id="shipping_method_id-instance_method">
   
     - (<tt>Integer</tt>) <strong>shipping_method_id</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
-    <p>
-shipping method id for the order item (use to reduce SQL calls)
-</p>
-<pre class="code">
-  <span class='id refer'>refer</span> <span class='id to'>to</span> <span class='const'>ShippingMethod</span> <span class='const'>ID</span> <span class='id constants'>constants</span> <span class='id to'>to</span> <span class='id determine'>determine</span> <span class='id what'>what</span> <span class='id shipping'>shipping</span> <span class='id method'>method</span> <span class='id is'>is</span> <span class='id called'>called</span></pre>
+    
+<p>shipping method id for the order item (use to reduce SQL calls)</p>
+
+<pre class="code ruby"><code><span class='id identifier rubyid_refer'>refer</span> <span class='id identifier rubyid_to'>to</span> <span class='const'>ShippingMethod</span> <span class='const'>ID</span> <span class='id identifier rubyid_constants'>constants</span> <span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_determine'>determine</span> <span class='id identifier rubyid_what'>what</span> <span class='id identifier rubyid_shipping'>shipping</span> <span class='id identifier rubyid_method'>method</span> <span class='id identifier rubyid_is'>is</span> <span class='id identifier rubyid_called'>called</span></code></pre>
 
 
   </div>
 </div>
 <div class="tags">
-  <h3>Parameters:</h3>
+  <p class="tag_title">Parameters:</p>
 <ul class="param">
   
     <li>
@@ -1448,7 +1719,7 @@ shipping method id for the order item (use to reduce SQL calls)
   
 </ul>
 
-<h3>Returns:</h3>
+<p class="tag_title">Returns:</p>
 <ul class="return">
   
     <li>
@@ -1459,9 +1730,8 @@ shipping method id for the order item (use to reduce SQL calls)
       
       
         &mdash;
-        <div class='inline'><p>
-ShippingMethod id
-</p>
+        <div class='inline'>
+<p>ShippingMethod id</p>
 </div>
       
     </li>
@@ -1474,15 +1744,15 @@ ShippingMethod id
       <pre class="lines">
 
 
-50
-51
-52</pre>
+81
+82
+83</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/order_item.rb', line 50</span>
+      <pre class="code"><span class="info file"># File 'app/models/order_item.rb', line 81</span>
 
-<span class='kw'>def</span> <span class='id shipping_method_id'>shipping_method_id</span>
-  <span class='id shipping_rate'>shipping_rate</span><span class='period'>.</span><span class='id shipping_method_id'>shipping_method_id</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_shipping_method_id'>shipping_method_id</span>
+  <span class='id identifier rubyid_shipping_rate'>shipping_rate</span><span class='period'>.</span><span class='id identifier rubyid_shipping_method_id'>shipping_method_id</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1490,31 +1760,33 @@ ShippingMethod id
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="shipping_rate_options-instance_method">
+  <h3 class="signature " id="shipping_rate_options-instance_method">
   
     - (<tt>Object</tt>) <strong>shipping_rate_options</strong>(total_charge) 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-58
-59
-60
-61
-62</pre>
+89
+90
+91
+92
+93</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/order_item.rb', line 58</span>
+      <pre class="code"><span class="info file"># File 'app/models/order_item.rb', line 89</span>
 
-<span class='kw'>def</span> <span class='id shipping_rate_options'>shipping_rate_options</span><span class='lparen'>(</span><span class='id total_charge'>total_charge</span><span class='rparen'>)</span>
-  <span class='const'>ShippingRate</span><span class='period'>.</span><span class='id joins'>joins</span><span class='lparen'>(</span><span class='symbol'>:shipping_method</span><span class='rparen'>)</span><span class='period'>.</span><span class='id where'>where</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>shipping_rates.shipping_category_id = ?
+<span class='kw'>def</span> <span class='id identifier rubyid_shipping_rate_options'>shipping_rate_options</span><span class='lparen'>(</span><span class='id identifier rubyid_total_charge'>total_charge</span><span class='rparen'>)</span>
+  <span class='const'>ShippingRate</span><span class='period'>.</span><span class='id identifier rubyid_joins'>joins</span><span class='lparen'>(</span><span class='symbol'>:shipping_method</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>shipping_rates.shipping_category_id = ?
                       AND shipping_methods.shipping_zone_id = ?
-                      AND shipping_rates.minimum_charge &lt;= ?</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id ship_category_id'>ship_category_id</span><span class='comma'>,</span> <span class='id order'>order</span><span class='period'>.</span><span class='id ship_address'>ship_address</span><span class='period'>.</span><span class='id state'>state</span><span class='period'>.</span><span class='id shipping_zone_id'>shipping_zone_id</span><span class='comma'>,</span> <span class='id total_charge'>total_charge</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id all'>all</span>
+                      AND shipping_rates.minimum_charge &lt;= ?</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_ship_category_id'>ship_category_id</span><span class='comma'>,</span> <span class='id identifier rubyid_order'>order</span><span class='period'>.</span><span class='id identifier rubyid_ship_address'>ship_address</span><span class='period'>.</span><span class='id identifier rubyid_state'>state</span><span class='period'>.</span><span class='id identifier rubyid_shipping_zone_id'>shipping_zone_id</span><span class='comma'>,</span> <span class='id identifier rubyid_total_charge'>total_charge</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_all'>all</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1522,23 +1794,24 @@ ShippingMethod id
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="tax_charge-instance_method">
+  <h3 class="signature " id="tax_charge-instance_method">
   
     - (<tt>Float</tt>) <strong>tax_charge</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
-    <p>
-the tax charge on an item
-</p>
+    
+<p>the tax charge on an item</p>
 
 
   </div>
 </div>
 <div class="tags">
-  <h3>Parameters:</h3>
+  <p class="tag_title">Parameters:</p>
 <ul class="param">
   
     <li>
@@ -1554,7 +1827,7 @@ the tax charge on an item
   
 </ul>
 
-<h3>Returns:</h3>
+<p class="tag_title">Returns:</p>
 <ul class="return">
   
     <li>
@@ -1565,9 +1838,8 @@ the tax charge on an item
       
       
         &mdash;
-        <div class='inline'><p>
-tax charge on the item.
-</p>
+        <div class='inline'>
+<p>tax charge on the item.</p>
 </div>
       
     </li>
@@ -1580,17 +1852,17 @@ tax charge on the item.
       <pre class="lines">
 
 
-150
-151
-152
-153</pre>
+199
+200
+201
+202</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/order_item.rb', line 150</span>
+      <pre class="code"><span class="info file"># File 'app/models/order_item.rb', line 199</span>
 
-<span class='kw'>def</span> <span class='id tax_charge'>tax_charge</span>
-  <span class='id tax_percentage'>tax_percentage</span> <span class='op'>=</span> <span class='id tax_rate'>tax_rate</span><span class='period'>.</span><span class='id try'>try</span><span class='lparen'>(</span><span class='symbol'>:tax_percentage</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id tax_rate'>tax_rate</span><span class='period'>.</span><span class='id tax_percentage'>tax_percentage</span> <span class='op'>:</span> <span class='float'>0.0</span>
-  <span class='id adjusted_price'>adjusted_price</span> <span class='op'>*</span> <span class='id tax_percentage'>tax_percentage</span> <span class='op'>/</span> <span class='float'>100.0</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_tax_charge'>tax_charge</span>
+  <span class='id identifier rubyid_tax_percentage'>tax_percentage</span> <span class='op'>=</span> <span class='id identifier rubyid_tax_rate'>tax_rate</span><span class='period'>.</span><span class='id identifier rubyid_try'>try</span><span class='lparen'>(</span><span class='symbol'>:tax_percentage</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id identifier rubyid_tax_rate'>tax_rate</span><span class='period'>.</span><span class='id identifier rubyid_tax_percentage'>tax_percentage</span> <span class='op'>:</span> <span class='float'>0.0</span>
+  <span class='id identifier rubyid_adjusted_price'>adjusted_price</span> <span class='op'>*</span> <span class='id identifier rubyid_tax_percentage'>tax_percentage</span> <span class='op'>/</span> <span class='float'>100.0</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1600,11 +1872,11 @@ tax charge on the item.
   </div>
 
 </div>
-    
+
     <div id="footer">
-  Generated on Tue Nov 29 10:08:55 2011 by 
+  Generated on Mon Jan 21 18:43:35 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.7.3 (ruby-1.9.2).
+  0.8.3 (ruby-1.9.3).
 </div>
 
   </body>

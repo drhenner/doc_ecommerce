@@ -6,7 +6,7 @@
 <title>
   Module: PaymentProfileCim
   
-    &mdash; Documentation by YARD 0.7.3
+    &mdash; Documentation by YARD 0.8.3
   
 </title>
 
@@ -15,9 +15,11 @@
   <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  if (relpath != '') relpath += '/';
+  framesUrl = "frames.html#!" + escape(window.location.href);
 </script>
+
 
   <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
 
@@ -26,36 +28,41 @@
 
   </head>
   <body>
-    <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) document.body.className = 'frames';
-    </script>
-    
     <div id="header">
       <div id="menu">
   
-    <a href="_index.html">Index (P)</a> &raquo; 
+    <a href="_index.html">Index (P)</a> &raquo;
     
     
     <span class="title">PaymentProfileCim</span>
   
-  
+
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
       <div id="search">
   
-    <a id="class_list_link" href="#">Class List</a>
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
   
-    <a id="method_list_link" href="#">Method List</a>
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
   
-    <a id="file_list_link" href="#">File List</a>
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
   
 </div>
       <div class="clear"></div>
     </div>
-    
+
     <iframe id="search_frame"></iframe>
-    
+
     <div id="content"><h1>Module: PaymentProfileCim
   
   
@@ -87,10 +94,10 @@
 
 
 
-  
 
 
-  
+
+
 
   
     <h2>
@@ -108,6 +115,7 @@
 
     
   </span>
+  
   
   
   
@@ -135,6 +143,7 @@
   
   
   
+  
 
   
     <span class="summary_desc"><div class='inline'></div></span>
@@ -156,6 +165,7 @@
   
   
   
+  
 
   
     <span class="summary_desc"><div class='inline'></div></span>
@@ -171,16 +181,18 @@
 
   <div id="instance_method_details" class="method_details_list">
     <h2>Instance Method Details</h2>
-    
+
     
       <div class="method_details first">
-  <p class="signature first" id="create-instance_method">
+  <h3 class="signature first" id="create-instance_method">
   
     - (<tt>Object</tt>) <strong>create</strong> 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
@@ -197,19 +209,21 @@
 13
 14
 15
-16</pre>
+16
+17</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/models/payment_profile_cim.rb', line 5</span>
 
-<span class='kw'>def</span> <span class='id create'>create</span>
-  <span class='kw'>if</span> <span class='kw'>super</span> <span class='kw'>and</span> <span class='id create_payment_profile'>create_payment_profile</span>
-    <span class='id user'>user</span><span class='period'>.</span><span class='id update_attributes'>update_attributes</span><span class='lparen'>(</span><span class='lbrace'>{</span><span class='symbol'>:payment_profile_id</span> <span class='op'>=&gt;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id id'>id</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-    <span class='kw'>return</span> <span class='kw'>true</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span>
+  <span class='kw'>if</span> <span class='kw'>super</span> <span class='kw'>and</span> <span class='id identifier rubyid_create_payment_profile'>create_payment_profile</span>
+    <span class='comment'># user.payment_profile_id = self.id  #  add this line if the user has a default payment_profile
+</span>    <span class='comment'># user.save
+</span>    <span class='kw'>return</span> <span class='kw'>true</span>
   <span class='kw'>else</span>
-    <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id id'>id</span>
+    <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span>
       <span class='comment'>#destroy the instance if it was created
-</span>      <span class='kw'>self</span><span class='period'>.</span><span class='id destroy'>destroy</span>
+</span>      <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_destroy'>destroy</span>
     <span class='kw'>end</span>
     <span class='kw'>return</span> <span class='kw'>false</span>
   <span class='kw'>end</span>
@@ -220,30 +234,32 @@
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="destroy-instance_method">
+  <h3 class="signature " id="destroy-instance_method">
   
     - (<tt>Object</tt>) <strong>destroy</strong> 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-25
 26
 27
 28
 29
-30</pre>
+30
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/payment_profile_cim.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'app/models/payment_profile_cim.rb', line 26</span>
 
-<span class='kw'>def</span> <span class='id destroy'>destroy</span>
-  <span class='kw'>if</span> <span class='id delete_payment_profile'>delete_payment_profile</span> <span class='kw'>and</span> <span class='kw'>super</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_destroy'>destroy</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_delete_payment_profile'>delete_payment_profile</span> <span class='kw'>and</span> <span class='kw'>super</span>
     <span class='kw'>return</span> <span class='kw'>true</span>
   <span class='kw'>end</span>
   <span class='kw'>return</span> <span class='kw'>false</span>
@@ -254,30 +270,32 @@
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="update-instance_method">
+  <h3 class="signature " id="update-instance_method">
   
     - (<tt>Object</tt>) <strong>update</strong> 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-18
 19
 20
 21
 22
-23</pre>
+23
+24</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/payment_profile_cim.rb', line 18</span>
+      <pre class="code"><span class="info file"># File 'app/models/payment_profile_cim.rb', line 19</span>
 
-<span class='kw'>def</span> <span class='id update'>update</span>
-  <span class='kw'>if</span> <span class='kw'>super</span> <span class='kw'>and</span> <span class='id update_payment_profile'>update_payment_profile</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span>
+  <span class='kw'>if</span> <span class='kw'>super</span> <span class='kw'>and</span> <span class='id identifier rubyid_update_payment_profile'>update_payment_profile</span>
     <span class='kw'>return</span> <span class='kw'>true</span>
   <span class='kw'>end</span>
   <span class='kw'>return</span> <span class='kw'>false</span>
@@ -290,11 +308,11 @@
   </div>
 
 </div>
-    
+
     <div id="footer">
-  Generated on Tue Nov 29 10:08:56 2011 by 
+  Generated on Mon Jan 21 18:43:31 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.7.3 (ruby-1.9.2).
+  0.8.3 (ruby-1.9.3).
 </div>
 
   </body>

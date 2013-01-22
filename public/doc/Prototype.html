@@ -6,7 +6,7 @@
 <title>
   Class: Prototype
   
-    &mdash; Documentation by YARD 0.7.3
+    &mdash; Documentation by YARD 0.8.3
   
 </title>
 
@@ -15,9 +15,11 @@
   <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  if (relpath != '') relpath += '/';
+  framesUrl = "frames.html#!" + escape(window.location.href);
 </script>
+
 
   <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
 
@@ -26,36 +28,41 @@
 
   </head>
   <body>
-    <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) document.body.className = 'frames';
-    </script>
-    
     <div id="header">
       <div id="menu">
   
-    <a href="_index.html">Index (P)</a> &raquo; 
+    <a href="_index.html">Index (P)</a> &raquo;
     
     
     <span class="title">Prototype</span>
   
-  
+
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
       <div id="search">
   
-    <a id="class_list_link" href="#">Class List</a>
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
   
-    <a id="method_list_link" href="#">Method List</a>
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
   
-    <a id="file_list_link" href="#">File List</a>
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
   
 </div>
       <div class="clear"></div>
     </div>
-    
+
     <iframe id="search_frame"></iframe>
-    
+
     <div id="content"><h1>Class: Prototype
   
   
@@ -96,10 +103,10 @@
 
 
 
-  
 
 
-  
+
+
 
   
     <h2>
@@ -123,11 +130,11 @@
   
   
   
+  
 
   
-    <span class="summary_desc"><div class='inline'><p>
-paginated results from the admin Prototype grid.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>paginated results from the admin Prototype grid.</p>
 </div></span>
   
 </li>
@@ -156,12 +163,11 @@ paginated results from the admin Prototype grid.
   
   
   
+  
 
   
-    <span class="summary_desc"><div class='inline'><p>
-&#8216;True&#8217; if active &#8216;False&#8217; otherwise in plain
-english.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>'True' if active 'False' otherwise in plain english.</p>
 </div></span>
   
 </li>
@@ -175,26 +181,27 @@ english.
 
   <div id="class_method_details" class="method_details_list">
     <h2>Class Method Details</h2>
-    
+
     
       <div class="method_details first">
-  <p class="signature first" id="admin_grid-class_method">
+  <h3 class="signature first" id="admin_grid-class_method">
   
     + (<tt>Array[<span class='object_link'><a href="" title="Prototype (class)">Prototype</a></span>]</tt>) <strong>admin_grid</strong>(params = {}) 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
-    <p>
-paginated results from the admin Prototype grid
-</p>
+    
+<p>paginated results from the admin Prototype grid</p>
 
 
   </div>
 </div>
 <div class="tags">
-  <h3>Parameters:</h3>
+  <p class="tag_title">Parameters:</p>
 <ul class="param">
   
     <li>
@@ -210,7 +217,7 @@ paginated results from the admin Prototype grid
   
 </ul>
 
-<h3>Returns:</h3>
+<p class="tag_title">Returns:</p>
 <ul class="return">
   
     <li>
@@ -246,16 +253,16 @@ paginated results from the admin Prototype grid
     <td>
       <pre class="code"><span class="info file"># File 'app/models/prototype.rb', line 15</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id admin_grid'>admin_grid</span><span class='lparen'>(</span><span class='id params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_admin_grid'>admin_grid</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
-  <span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:page</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='int'>1</span>
-  <span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:rows</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='int'>25</span>
+  <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:page</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='int'>1</span>
+  <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:rows</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='int'>25</span>
 
-  <span class='id grid'>grid</span> <span class='op'>=</span> <span class='const'>Prototype</span>
-  <span class='id grid'>grid</span> <span class='op'>=</span> <span class='id grid'>grid</span><span class='period'>.</span><span class='id where'>where</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>active = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='kw'>true</span><span class='rparen'>)</span>                    <span class='kw'>unless</span>  <span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:show_all</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id present?'>present?</span> <span class='op'>&amp;&amp;</span>
-                                                            <span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:show_all</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>true</span><span class='tstring_end'>'</span></span>
-  <span class='id grid'>grid</span> <span class='op'>=</span> <span class='id grid'>grid</span><span class='period'>.</span><span class='id where'>where</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>prototypes.display_name = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:display_name</span><span class='rbracket'>]</span><span class='rparen'>)</span>  <span class='kw'>if</span> <span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:display_name</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id present?'>present?</span>
-  <span class='id grid'>grid</span> <span class='op'>=</span> <span class='id grid'>grid</span><span class='period'>.</span><span class='id order'>order</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:sidx</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:sord</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id paginate'>paginate</span><span class='lparen'>(</span><span class='symbol'>:page</span> <span class='op'>=&gt;</span> <span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:page</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id to_i'>to_i</span><span class='comma'>,</span> <span class='symbol'>:per_page</span> <span class='op'>=&gt;</span> <span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:rows</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id to_i'>to_i</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_grid'>grid</span> <span class='op'>=</span> <span class='const'>Prototype</span>
+  <span class='id identifier rubyid_grid'>grid</span> <span class='op'>=</span> <span class='id identifier rubyid_grid'>grid</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>active = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='kw'>true</span><span class='rparen'>)</span>                    <span class='kw'>unless</span>  <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:show_all</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_present?'>present?</span> <span class='op'>&amp;&amp;</span>
+                                                            <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:show_all</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>true</span><span class='tstring_end'>'</span></span>
+  <span class='id identifier rubyid_grid'>grid</span> <span class='op'>=</span> <span class='id identifier rubyid_grid'>grid</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>prototypes.name LIKE ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:name</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='tstring_content'>%</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>  <span class='kw'>if</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:name</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_present?'>present?</span>
+  <span class='id identifier rubyid_grid'>grid</span>
 
 <span class='kw'>end</span></pre>
     </td>
@@ -267,26 +274,27 @@ paginated results from the admin Prototype grid
 
   <div id="instance_method_details" class="method_details_list">
     <h2>Instance Method Details</h2>
-    
+
     
       <div class="method_details first">
-  <p class="signature first" id="display_active-instance_method">
+  <h3 class="signature first" id="display_active-instance_method">
   
     - (<tt>String</tt>) <strong>display_active</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
-    <p>
-&#8216;True&#8217; if active &#8216;False&#8217; otherwise in plain english
-</p>
+    
+<p>'True' if active 'False' otherwise in plain english</p>
 
 
   </div>
 </div>
 <div class="tags">
-  <h3>Parameters:</h3>
+  <p class="tag_title">Parameters:</p>
 <ul class="param">
   
     <li>
@@ -302,7 +310,7 @@ paginated results from the admin Prototype grid
   
 </ul>
 
-<h3>Returns:</h3>
+<p class="tag_title">Returns:</p>
 <ul class="return">
   
     <li>
@@ -313,9 +321,8 @@ paginated results from the admin Prototype grid
       
       
         &mdash;
-        <div class='inline'><p>
-&#8216;True&#8217; or &#8216;False&#8217;
-</p>
+        <div class='inline'>
+<p>'True' or 'False'</p>
 </div>
       
     </li>
@@ -335,8 +342,8 @@ paginated results from the admin Prototype grid
     <td>
       <pre class="code"><span class="info file"># File 'app/models/prototype.rb', line 32</span>
 
-<span class='kw'>def</span> <span class='id display_active'>display_active</span>
-  <span class='id active?'>active?</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>True</span><span class='tstring_end'>'</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>False</span><span class='tstring_end'>'</span></span>
+<span class='kw'>def</span> <span class='id identifier rubyid_display_active'>display_active</span>
+  <span class='id identifier rubyid_active?'>active?</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>True</span><span class='tstring_end'>'</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>False</span><span class='tstring_end'>'</span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -346,11 +353,11 @@ paginated results from the admin Prototype grid
   </div>
 
 </div>
-    
+
     <div id="footer">
-  Generated on Tue Nov 29 10:08:55 2011 by 
+  Generated on Mon Jan 21 18:43:37 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.7.3 (ruby-1.9.2).
+  0.8.3 (ruby-1.9.3).
 </div>
 
   </body>

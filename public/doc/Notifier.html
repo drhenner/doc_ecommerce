@@ -6,7 +6,7 @@
 <title>
   Class: Notifier
   
-    &mdash; Documentation by YARD 0.7.3
+    &mdash; Documentation by YARD 0.8.3
   
 </title>
 
@@ -15,9 +15,11 @@
   <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  if (relpath != '') relpath += '/';
+  framesUrl = "frames.html#!" + escape(window.location.href);
 </script>
+
 
   <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
 
@@ -26,36 +28,41 @@
 
   </head>
   <body>
-    <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) document.body.className = 'frames';
-    </script>
-    
     <div id="header">
       <div id="menu">
   
-    <a href="_index.html">Index (N)</a> &raquo; 
+    <a href="_index.html">Index (N)</a> &raquo;
     
     
     <span class="title">Notifier</span>
   
-  
+
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
       <div id="search">
   
-    <a id="class_list_link" href="#">Class List</a>
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
   
-    <a id="method_list_link" href="#">Method List</a>
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
   
-    <a id="file_list_link" href="#">File List</a>
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
   
 </div>
       <div class="clear"></div>
     </div>
-    
+
     <iframe id="search_frame"></iframe>
-    
+
     <div id="content"><h1>Class: Notifier
   
   
@@ -96,10 +103,10 @@
 
 
 
-  
 
 
-  
+
+
 
   
     <h2>
@@ -112,11 +119,34 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#order_confirmation-instance_method" title="#order_confirmation (instance method)">- (Object) <strong>order_confirmation</strong>(order, invoice) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#password_reset_instructions-instance_method" title="#password_reset_instructions (instance method)">- (Object) <strong>password_reset_instructions</strong>(user) </a>
     
 
     
   </span>
+  
   
   
   
@@ -144,12 +174,13 @@
   
   
   
+  
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Simple Welcome mailer
-</p>
-<h1>> CUSTOMIZE FOR YOUR OWN APP.</h1>
+    <span class="summary_desc"><div class='inline'>
+<p>Simple Welcome mailer</p>
+
+<h1>&gt; CUSTOMIZE FOR YOUR OWN APP.</h1>
 </div></span>
   
 </li>
@@ -163,16 +194,60 @@ Simple Welcome mailer
 
   <div id="instance_method_details" class="method_details_list">
     <h2>Instance Method Details</h2>
-    
+
     
       <div class="method_details first">
-  <p class="signature first" id="password_reset_instructions-instance_method">
+  <h3 class="signature first" id="order_confirmation-instance_method">
+  
+    - (<tt>Object</tt>) <strong>order_confirmation</strong>(order, invoice) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+31
+32
+33
+34
+35
+36
+37
+38
+39</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/notifier.rb', line 31</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_order_confirmation'>order_confirmation</span><span class='lparen'>(</span><span class='id identifier rubyid_order'>order</span><span class='comma'>,</span><span class='id identifier rubyid_invoice'>invoice</span><span class='rparen'>)</span>
+  <span class='ivar'>@invoice</span> <span class='op'>=</span> <span class='id identifier rubyid_invoice'>invoice</span>
+  <span class='ivar'>@order</span>  <span class='op'>=</span> <span class='id identifier rubyid_order'>order</span>
+  <span class='ivar'>@user</span>   <span class='op'>=</span> <span class='id identifier rubyid_order'>order</span><span class='period'>.</span><span class='id identifier rubyid_user'>user</span>
+  <span class='ivar'>@url</span>    <span class='op'>=</span> <span class='id identifier rubyid_root_url'>root_url</span>
+  <span class='ivar'>@site_name</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>site_name</span><span class='tstring_end'>'</span></span>
+  <span class='id identifier rubyid_mail'>mail</span><span class='lparen'>(</span><span class='symbol'>:to</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_order'>order</span><span class='period'>.</span><span class='id identifier rubyid_email'>email</span><span class='comma'>,</span>
+       <span class='symbol'>:subject</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Order Confirmation</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="password_reset_instructions-instance_method">
   
     - (<tt>Object</tt>) <strong>password_reset_instructions</strong>(user) 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
@@ -188,10 +263,10 @@ Simple Welcome mailer
     <td>
       <pre class="code"><span class="info file"># File 'app/models/notifier.rb', line 23</span>
 
-<span class='kw'>def</span> <span class='id password_reset_instructions'>password_reset_instructions</span><span class='lparen'>(</span><span class='id user'>user</span><span class='rparen'>)</span>
-  <span class='ivar'>@user</span> <span class='op'>=</span> <span class='id user'>user</span>
-  <span class='ivar'>@url</span>  <span class='op'>=</span> <span class='id edit_customer_password_reset_url'>edit_customer_password_reset_url</span><span class='lparen'>(</span><span class='symbol'>:id</span> <span class='op'>=&gt;</span> <span class='id user'>user</span><span class='period'>.</span><span class='id perishable_token'>perishable_token</span><span class='rparen'>)</span>
-  <span class='id mail'>mail</span><span class='lparen'>(</span><span class='symbol'>:to</span> <span class='op'>=&gt;</span> <span class='id user'>user</span><span class='period'>.</span><span class='id email'>email</span><span class='comma'>,</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_password_reset_instructions'>password_reset_instructions</span><span class='lparen'>(</span><span class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
+  <span class='ivar'>@user</span> <span class='op'>=</span> <span class='id identifier rubyid_user'>user</span>
+  <span class='ivar'>@url</span>  <span class='op'>=</span> <span class='id identifier rubyid_edit_customer_password_reset_url'>edit_customer_password_reset_url</span><span class='lparen'>(</span><span class='symbol'>:id</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_user'>user</span><span class='period'>.</span><span class='id identifier rubyid_perishable_token'>perishable_token</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_mail'>mail</span><span class='lparen'>(</span><span class='symbol'>:to</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_user'>user</span><span class='period'>.</span><span class='id identifier rubyid_email'>email</span><span class='comma'>,</span>
        <span class='symbol'>:subject</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Reset Password Instructions</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -200,25 +275,28 @@ Simple Welcome mailer
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="signup_notification-instance_method">
+  <h3 class="signature " id="signup_notification-instance_method">
   
     - (<tt>Object</tt>) <strong>signup_notification</strong>(recipient) 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
-    <p>
-Simple Welcome mailer
-</p>
-<h1>> CUSTOMIZE FOR YOUR OWN APP</h1>
-<h1>> user must respond to email_address_with_name and name</h1>
+    
+<p>Simple Welcome mailer</p>
+
+<h1>&gt; CUSTOMIZE FOR YOUR OWN APP</h1>
+
+<h1>&gt; user must respond to email_address_with_name and name</h1>
 
 
   </div>
 </div>
 <div class="tags">
-  <h3>Parameters:</h3>
+  <p class="tag_title">Parameters:</p>
 <ul class="param">
   
     <li>
@@ -231,9 +309,8 @@ Simple Welcome mailer
       
       
         &mdash;
-        <div class='inline'><p>
-that signed up
-</p>
+        <div class='inline'>
+<p>that signed up</p>
 </div>
       
     </li>
@@ -264,16 +341,16 @@ that signed up
     <td>
       <pre class="code"><span class="info file"># File 'app/models/notifier.rb', line 9</span>
 
-<span class='kw'>def</span> <span class='id signup_notification'>signup_notification</span><span class='lparen'>(</span><span class='id recipient'>recipient</span><span class='rparen'>)</span>
-  <span class='ivar'>@account</span> <span class='op'>=</span> <span class='id recipient'>recipient</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_signup_notification'>signup_notification</span><span class='lparen'>(</span><span class='id identifier rubyid_recipient'>recipient</span><span class='rparen'>)</span>
+  <span class='ivar'>@account</span> <span class='op'>=</span> <span class='id identifier rubyid_recipient'>recipient</span>
 
   <span class='comment'>#attachments['an-image.jp'] = File.read(&quot;an-image.jpg&quot;)
 </span>  <span class='comment'>#attachments['terms.pdf'] = {:content =&gt; generate_your_pdf_here() }
 </span>
-  <span class='id mail'>mail</span><span class='lparen'>(</span><span class='symbol'>:to</span> <span class='op'>=&gt;</span> <span class='id recipient'>recipient</span><span class='period'>.</span><span class='id email_address_with_name'>email_address_with_name</span><span class='comma'>,</span>
-       <span class='symbol'>:subject</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>New account information</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id format'>format</span><span class='op'>|</span>
-    <span class='id format'>format</span><span class='period'>.</span><span class='id text'>text</span> <span class='lbrace'>{</span> <span class='id render'>render</span> <span class='symbol'>:text</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Welcome!  </span><span class='embexpr_beg'>#{</span><span class='id recipient'>recipient</span><span class='period'>.</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='tstring_content'> go to </span><span class='embexpr_beg'>#{</span><span class='id customer_activation_url'>customer_activation_url</span><span class='lparen'>(</span><span class='symbol'>:a</span> <span class='op'>=&gt;</span> <span class='id recipient'>recipient</span><span class='period'>.</span><span class='id perishable_token'>perishable_token</span> <span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
-    <span class='id format'>format</span><span class='period'>.</span><span class='id html'>html</span> <span class='lbrace'>{</span> <span class='id render'>render</span> <span class='symbol'>:text</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;h1&gt;Welcome&lt;/h1&gt; </span><span class='embexpr_beg'>#{</span><span class='id recipient'>recipient</span><span class='period'>.</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='tstring_content'> &lt;a href='</span><span class='embexpr_beg'>#{</span><span class='id customer_activation_url'>customer_activation_url</span><span class='lparen'>(</span><span class='symbol'>:a</span> <span class='op'>=&gt;</span> <span class='id recipient'>recipient</span><span class='period'>.</span><span class='id perishable_token'>perishable_token</span> <span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_content'>'&gt;Click to Activate&lt;/a&gt;</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_mail'>mail</span><span class='lparen'>(</span><span class='symbol'>:to</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_recipient'>recipient</span><span class='period'>.</span><span class='id identifier rubyid_email_address_with_name'>email_address_with_name</span><span class='comma'>,</span>
+       <span class='symbol'>:subject</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>New account information</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_format'>format</span><span class='op'>|</span>
+    <span class='id identifier rubyid_format'>format</span><span class='period'>.</span><span class='id identifier rubyid_text'>text</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_render'>render</span> <span class='symbol'>:text</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Welcome!  </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_recipient'>recipient</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_content'> go to </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_customer_activation_url'>customer_activation_url</span><span class='lparen'>(</span><span class='symbol'>:a</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_recipient'>recipient</span><span class='period'>.</span><span class='id identifier rubyid_perishable_token'>perishable_token</span> <span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
+    <span class='id identifier rubyid_format'>format</span><span class='period'>.</span><span class='id identifier rubyid_html'>html</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_render'>render</span> <span class='symbol'>:text</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;h1&gt;Welcome&lt;/h1&gt; </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_recipient'>recipient</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_content'> &lt;a href='</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_customer_activation_url'>customer_activation_url</span><span class='lparen'>(</span><span class='symbol'>:a</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_recipient'>recipient</span><span class='period'>.</span><span class='id identifier rubyid_perishable_token'>perishable_token</span> <span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_content'>'&gt;Click to Activate&lt;/a&gt;</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
   <span class='kw'>end</span>
 
 <span class='kw'>end</span></pre>
@@ -285,11 +362,11 @@ that signed up
   </div>
 
 </div>
-    
+
     <div id="footer">
-  Generated on Tue Nov 29 10:08:55 2011 by 
+  Generated on Mon Jan 21 18:43:34 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.7.3 (ruby-1.9.2).
+  0.8.3 (ruby-1.9.3).
 </div>
 
   </body>

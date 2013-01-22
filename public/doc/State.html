@@ -6,7 +6,7 @@
 <title>
   Class: State
   
-    &mdash; Documentation by YARD 0.7.3
+    &mdash; Documentation by YARD 0.8.3
   
 </title>
 
@@ -15,9 +15,11 @@
   <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  if (relpath != '') relpath += '/';
+  framesUrl = "frames.html#!" + escape(window.location.href);
 </script>
+
 
   <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
 
@@ -26,36 +28,41 @@
 
   </head>
   <body>
-    <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) document.body.className = 'frames';
-    </script>
-    
     <div id="header">
       <div id="menu">
   
-    <a href="_index.html">Index (S)</a> &raquo; 
+    <a href="_index.html">Index (S)</a> &raquo;
     
     
     <span class="title">State</span>
   
-  
+
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
       <div id="search">
   
-    <a id="class_list_link" href="#">Class List</a>
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
   
-    <a id="method_list_link" href="#">Method List</a>
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
   
-    <a id="file_list_link" href="#">File List</a>
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
   
 </div>
       <div class="clear"></div>
     </div>
-    
+
     <iframe id="search_frame"></iframe>
-    
+
     <div id="content"><h1>Class: State
   
   
@@ -94,12 +101,30 @@
 </dl>
 <div class="clear"></div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>States are "states, territories and provinces" of a country. This table is
+seeded from</p>
+
+<pre class="code ruby"><code> the db/seeds.rb file.  The seed data is supplied by db/seed/international_states/*.yml files.
+
+If you need to seed a state other than a state in the United states You should watch the following video:
+
+http://www.ror-e.com/info/videos/2</code></pre>
 
 
+  </div>
+</div>
+<div class="tags">
   
 
+</div>
 
-  
+
+
+
+
 
   
     <h2>
@@ -123,11 +148,11 @@
   
   
   
+  
 
   
-    <span class="summary_desc"><div class='inline'><p>
-filter all the states for a form for a given country_id.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>filter all the states for a form for a given country_id.</p>
 </div></span>
   
 </li>
@@ -147,17 +172,15 @@ filter all the states for a form for a given country_id.
   
   
   
+  
 
   
-    <span class="summary_desc"><div class='inline'><p>
-method to get all the states for a form
-</p>
-<dl>
-<dt>[&#8216;NY New York&#8217;, 32], [&#8216;CA California&#8217;, 3</dt><dd><p>
-&#8230; ].
-</p>
-</dd>
-</dl>
+    <span class="summary_desc"><div class='inline'>
+<p>method to get all the states for a form</p>
+<dl class="rdoc-list"><dt>['NY New York', 32], ['CA California', 3</dt>
+<dd>
+<p>... ].</p>
+</dd></dl>
 </div></span>
   
 </li>
@@ -186,11 +209,11 @@ method to get all the states for a form
   
   
   
+  
 
   
-    <span class="summary_desc"><div class='inline'><p>
-the abbreviation and name of the state separated by &#8217;-&#8217;.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>the abbreviation and name of the state separated by '-'.</p>
 </div></span>
   
 </li>
@@ -210,12 +233,12 @@ the abbreviation and name of the state separated by &#8217;-&#8217;.
   
   
   
+  
 
   
-    <span class="summary_desc"><div class='inline'><p>
-the abbreviation and name of the state separated by &#8217;-&#8217; and
-optionally appended by characters.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>the abbreviation and name of the state separated by '-' and optionally
+appended by characters.</p>
 </div></span>
   
 </li>
@@ -229,26 +252,27 @@ optionally appended by characters.
 
   <div id="class_method_details" class="method_details_list">
     <h2>Class Method Details</h2>
-    
+
     
       <div class="method_details first">
-  <p class="signature first" id="all_with_country_id-class_method">
+  <h3 class="signature first" id="all_with_country_id-class_method">
   
     + (<tt>Arel</tt>) <strong>all_with_country_id</strong>(c_id) 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
-    <p>
-filter all the states for a form for a given country_id
-</p>
+    
+<p>filter all the states for a form for a given country_id</p>
 
 
   </div>
 </div>
 <div class="tags">
-  <h3>Parameters:</h3>
+  <p class="tag_title">Parameters:</p>
 <ul class="param">
   
     <li>
@@ -264,13 +288,86 @@ filter all the states for a form for a given country_id
   
 </ul>
 
-<h3>Returns:</h3>
+<p class="tag_title">Returns:</p>
 <ul class="return">
   
     <li>
       
       
         <span class='type'>(<tt>Arel</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+49
+50
+51</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/state.rb', line 49</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_all_with_country_id'>all_with_country_id</span><span class='lparen'>(</span><span class='id identifier rubyid_c_id'>c_id</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>country_id = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_c_id'>c_id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="form_selector-class_method">
+  
+    + (<tt>Array[Array]</tt>) <strong>form_selector</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>method to get all the states for a form</p>
+<dl class="rdoc-list"><dt>['NY New York', 32], ['CA California', 3</dt>
+<dd>
+<p>... ]</p>
+</dd></dl>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'></span>
+      
+      
+        <span class='type'>(<tt>none</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array[Array]</tt>)</span>
       
       
       
@@ -291,38 +388,39 @@ filter all the states for a form for a given country_id
     <td>
       <pre class="code"><span class="info file"># File 'app/models/state.rb', line 41</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id all_with_country_id'>all_with_country_id</span><span class='lparen'>(</span><span class='id c_id'>c_id</span><span class='rparen'>)</span>
-  <span class='id where'>where</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>country_id = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id c_id'>c_id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_form_selector'>form_selector</span>
+  <span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='symbol'>:all</span><span class='comma'>,</span> <span class='symbol'>:order</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>country_id ASC, abbreviation ASC</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_collect'>collect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_state'>state</span><span class='op'>|</span> <span class='lbracket'>[</span><span class='id identifier rubyid_state'>state</span><span class='period'>.</span><span class='id identifier rubyid_abbrev_and_name'>abbrev_and_name</span><span class='comma'>,</span> <span class='id identifier rubyid_state'>state</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
 </div>
     
-      <div class="method_details ">
-  <p class="signature " id="form_selector-class_method">
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="abbrev_and_name-instance_method">
   
-    + (<tt>Array[Array]</tt>) <strong>form_selector</strong> 
+    - (<tt>String</tt>) <strong>abbrev_and_name</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
-    <p>
-method to get all the states for a form
-</p>
-<dl>
-<dt>[&#8216;NY New York&#8217;, 32], [&#8216;CA California&#8217;, 3</dt><dd><p>
-&#8230; ]
-</p>
-</dd>
-</dl>
+    
+<p>the abbreviation and name of the state separated by '-'</p>
 
 
   </div>
 </div>
 <div class="tags">
-  <h3>Parameters:</h3>
+  <p class="tag_title">Parameters:</p>
 <ul class="param">
   
     <li>
@@ -338,13 +436,13 @@ method to get all the states for a form
   
 </ul>
 
-<h3>Returns:</h3>
+<p class="tag_title">Returns:</p>
 <ul class="return">
   
     <li>
       
       
-        <span class='type'>(<tt>Array[Array]</tt>)</span>
+        <span class='type'>(<tt>String</tt>)</span>
       
       
       
@@ -358,45 +456,41 @@ method to get all the states for a form
       <pre class="lines">
 
 
+32
 33
-34
-35</pre>
+34</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/state.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'app/models/state.rb', line 32</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id form_selector'>form_selector</span>
-  <span class='id find'>find</span><span class='lparen'>(</span><span class='symbol'>:all</span><span class='comma'>,</span> <span class='symbol'>:order</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>country_id ASC, abbreviation ASC</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id collect'>collect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id state'>state</span><span class='op'>|</span> <span class='lbracket'>[</span><span class='id state'>state</span><span class='period'>.</span><span class='id abbrev_and_name'>abbrev_and_name</span><span class='comma'>,</span> <span class='id state'>state</span><span class='period'>.</span><span class='id id'>id</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_abbrev_and_name'>abbrev_and_name</span>
+  <span class='id identifier rubyid_abbreviation_name'>abbreviation_name</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
 </div>
     
-  </div>
-
-  <div id="instance_method_details" class="method_details_list">
-    <h2>Instance Method Details</h2>
-    
-    
-      <div class="method_details first">
-  <p class="signature first" id="abbrev_and_name-instance_method">
+      <div class="method_details ">
+  <h3 class="signature " id="abbreviation_name-instance_method">
   
-    - (<tt>String</tt>) <strong>abbrev_and_name</strong> 
+    - (<tt>String</tt>) <strong>abbreviation_name</strong>(append_name = &quot;&quot;) 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
-    <p>
-the abbreviation and name of the state separated by &#8217;-&#8217;
-</p>
+    
+<p>the abbreviation and name of the state separated by '-' and optionally
+appended by characters</p>
 
 
   </div>
 </div>
 <div class="tags">
-  <h3>Parameters:</h3>
+  <p class="tag_title">Parameters:</p>
 <ul class="param">
   
     <li>
@@ -412,7 +506,7 @@ the abbreviation and name of the state separated by &#8217;-&#8217;
   
 </ul>
 
-<h3>Returns:</h3>
+<p class="tag_title">Returns:</p>
 <ul class="return">
   
     <li>
@@ -439,77 +533,8 @@ the abbreviation and name of the state separated by &#8217;-&#8217;
     <td>
       <pre class="code"><span class="info file"># File 'app/models/state.rb', line 24</span>
 
-<span class='kw'>def</span> <span class='id abbrev_and_name'>abbrev_and_name</span>
-  <span class='id abbreviation_name'>abbreviation_name</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="abbreviation_name-instance_method">
-  
-    - (<tt>String</tt>) <strong>abbreviation_name</strong>(append_name = &quot;&quot;) 
-  
-
-  
-</p><div class="docstring">
-  <div class="discussion">
-    <p>
-the abbreviation and name of the state separated by &#8217;-&#8217; and
-optionally appended by characters
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <h3>Parameters:</h3>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'></span>
-      
-      
-        <span class='type'>(<tt>none</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-<h3>Returns:</h3>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-16
-17
-18</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'app/models/state.rb', line 16</span>
-
-<span class='kw'>def</span> <span class='id abbreviation_name'>abbreviation_name</span><span class='lparen'>(</span><span class='id append_name'>append_name</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-  <span class='lparen'>(</span><span class='lbracket'>[</span><span class='id abbreviation'>abbreviation</span><span class='comma'>,</span> <span class='id name'>name</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> - </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span class='id append_name'>append_name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id strip'>strip</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_abbreviation_name'>abbreviation_name</span><span class='lparen'>(</span><span class='id identifier rubyid_append_name'>append_name</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='lparen'>(</span><span class='lbracket'>[</span><span class='id identifier rubyid_abbreviation'>abbreviation</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> - </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_append_name'>append_name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_strip'>strip</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -519,11 +544,11 @@ optionally appended by characters
   </div>
 
 </div>
-    
+
     <div id="footer">
-  Generated on Tue Nov 29 10:08:54 2011 by 
+  Generated on Mon Jan 21 18:43:39 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.7.3 (ruby-1.9.2).
+  0.8.3 (ruby-1.9.3).
 </div>
 
   </body>

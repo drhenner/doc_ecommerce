@@ -1,5 +1,7 @@
 DocEcommerce::Application.routes.draw do
 
+  resources :"stylist_admin/setups/users"
+
   namespace :contact do
     resources :posts
   end
