@@ -38,9 +38,8 @@
     <p class='margin-vertical-5 margin-sides-10'>
       <ul>
         <li>gem install bundler</li>
-        <li>gem install rails -v<%= rails_version %></li>
         <li>bundle install</li>
-        <li>rake db:create</li>
+        <li>rake db:create:all</li>
         <li>rake db:migrate</li>
         <li>rake db:seed</li>
         <li>rake db:test:prepare</li>
@@ -48,62 +47,10 @@
     </p>
 
     <hr/>
-<h2>Adding Dalli for cache and the session store</h2>
-<p>
-Install memcached, this is easiest to do with <a href="http://mxcl.github.com/homebrew/">homebrew</a> :
 
-<div class='install'>brew install memcached</div>
-and
-<div class='install'>
-  memcached -vv
-</div>
-  <h4>TO TURN ON THE DALLI COOKIE STORE </h4>
-  <p>
-Remove the cookie store on line one of config/initializers/session_store.rb
-go to the Gemfile and add
-<pre class="CodeRay">  gem 'dalli' </pre>
-then
-<pre class="CodeRay"> bundle install</pre>
-Finally  UNCOMMENT the next 2 lines in config/initializers/session_store.rb
-<pre class="CodeRay"> require 'action_dispatch/middleware/session/dalli_store' <br/>
-
-Hadean::Application.config.session_store :dalli_store, :key => '_hadean_session_ugrdr6765745ce4vy'</pre>
-
-<h4>TO TURN ON THE DALLI CACHE STORE</h4>
-it is also recommended to change the cache store in config/environments/*.rb
-
-<pre class="CodeRay"> config.cache_store = :dalli_store </pre>
-</p>
-<hr/>
-<h2>Adding Solr Search</h2>
-
-<div class='install'>brew install solr</div>
-Uncomment the following in your gemfile
-  <pre class="CodeRay">
-  #gem 'sunspot_solr'
-  #gem 'sunspot_rails', '~> 1.3'
-  </pre>
-
-  <div class='install'>bundle install</div>
-
-
-  start solr before starting you server
-
-  Go to the bottom of product.rb and uncomment the section with: <br>
-  “Product.class_eval”
     <p>
-      Time to start <%= link_to 'Sunspot / Solr', 'http://outoftime.github.com/sunspot/docs/index.html', 'data-popup' => true %> and
-      <%= link_to 'memcache', 'http://oldwiki.rubyonrails.org/rails/pages/MemCached', 'data-popup' => true %> (yep you better install them)
-      <div class='install'>rake sunspot:solr:start</div>
-
-      Take a look at setting up solr <br/>
-      <%= link_to 'Solr in 5 minutes', 'http://github.com/outoftime/sunspot/wiki/adding-sunspot-search-to-rails-in-5-minutes-or-less', 'data-popup' => true%>
-
-
-    </p>
-    <p>
-      You Need to create config/config.yml and change the encryption key and paypal or auth.net information.
-      You can also use config/config.yml.example until you get your real info.
+      You Need to create config/settings.yml and change the encryption key and paypal or auth.net information.
+      You can also use config/settings.yml.example until you get your real info.
     </p>
     <p>
       Paperclip will throw errors if not configured correctly.<br/>
@@ -120,6 +67,28 @@ Uncomment the following in your gemfile
         Write down the username/password and follow the directions.
       </p>
     </p>
+    <hr/>
+    <h3>Quick Evaluation</h3>
+    <p>
+      If you just want to see what ror_ecommerce looks like, before you enter any products into the database, run the following command:
+      <pre class='CodeRay' >rake db:seed_fake</pre>
+
+      <p>
+        You should now have a minimal dataset, and be able to see a demo of the various parts of the app.
+        Note: make sure you have `config/settings.yml` set up correctly before you try to checkout.
+        Also, please take a look at
+        <%= link_to 'The 15 minute e-commerce video', info_video_path(7)%>
+      </p>
+    </p>
+
+    <hr/><hr/>
+    <h2>OPTIONAL</h2>
+    <hr/>
+
+<%= render :partial => 'add_dalli' %>
+
+<hr/>
+<%= render :partial => 'add_solr' %>
   </div>
 
 </div>

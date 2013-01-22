@@ -20,7 +20,7 @@
       One of the first things you will need to do is setup your gateway to accept credit card payments.  You need to open config/config.yml and add your data-sensitive information.  REMEMBER this file should never be added to GIT.  This is secure data and this file should always be stored in a secure location.  I recommend purchasing the <%= link_to 'Peepcode PDF','http://peepcode.com/products/activemerchant-pdf', 'data-popup' => true %> about active merchant if you need more details.
     </p>
     <p>
-      <h3>config/config.yml</h3>
+      <h3>config/settings.yml</h3>
 
       <pre class='CodeRay' ><%=raw textilize(
       "<code lang='yml'>
@@ -38,6 +38,9 @@
         authnet:
           login:      YourAuthNetLogin
           password:   YourAuthNetPassword
+        vat: false
+        require_state_in_address: true
+        tax_per_state_id: true
       test:
         <<: *non_production_settings
        </code>") %></pre>

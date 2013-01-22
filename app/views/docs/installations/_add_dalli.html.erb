@@ -1,0 +1,26 @@
+<h3>Adding Dalli for cache and the session store</h3>
+<p>
+Install memcached, this is easiest to do with <a href="http://mxcl.github.com/homebrew/">homebrew</a> :
+
+<div class='install'>brew install memcached</div>
+and
+<div class='install'>
+  memcached -vv
+</div>
+  <h4>TO TURN ON THE DALLI COOKIE STORE </h4>
+  <p>
+Remove the cookie store on line one of config/initializers/session_store.rb
+go to the Gemfile and add
+<pre class="CodeRay">  gem 'dalli' </pre>
+then
+<pre class="CodeRay"> bundle install</pre>
+Finally  UNCOMMENT the next 2 lines in config/initializers/session_store.rb
+<pre class="CodeRay"> require 'action_dispatch/middleware/session/dalli_store' <br/>
+
+Hadean::Application.config.session_store :dalli_store, :key => '_hadean_session_ugrdr6765745ce4vy'</pre>
+
+<h4>TO TURN ON THE DALLI CACHE STORE</h4>
+it is also recommended to change the cache store in config/environments/*.rb
+
+<pre class="CodeRay"> config.cache_store = :dalli_store </pre>
+</p>

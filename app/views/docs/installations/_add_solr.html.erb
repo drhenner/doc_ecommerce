@@ -1,0 +1,28 @@
+  <h3>Adding Solr Search</h3>
+
+  <div class='install'>brew install solr</div>
+Uncomment the following in your gemfile
+  <pre class="CodeRay">
+  #gem 'sunspot_solr'
+  #gem 'sunspot_rails', '~> 1.3'
+  </pre>
+
+  <div class='install'>bundle install</div>
+
+
+  start solr before starting you server
+
+  Go to the bottom of product.rb and uncomment the section with: <br>
+  <pre class="CodeRay">
+  “Product.class_eval”
+  </pre>
+  <p>
+    Time to start <%= link_to 'Sunspot / Solr', 'http://outoftime.github.com/sunspot/docs/index.html', 'data-popup' => true %> and
+    <%= link_to 'memcache', 'http://oldwiki.rubyonrails.org/rails/pages/MemCached', 'data-popup' => true %> (yep you better install them)
+    <div class='install'>rake sunspot:solr:start</div>
+
+    Take a look at setting up solr <br/>
+    <%= link_to 'Solr in 5 minutes', 'http://github.com/outoftime/sunspot/wiki/adding-sunspot-search-to-rails-in-5-minutes-or-less', 'data-popup' => true%>
+
+
+  </p>
