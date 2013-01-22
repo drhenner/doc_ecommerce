@@ -1,9 +1,9 @@
 source 'http://rubygems.org'
 source "http://gems.github.com"
 
-gem 'rails', '3.0.3'
+gem 'rails', '~>  3.0.7'
 gem 'jquery-rails'
-gem "compass", ">= 0.10.5"
+gem "compass", ">= 0.12.rc.0"
 gem 'haml',  ">= 3.0.13"
 gem 'fancy-buttons'
 
@@ -13,7 +13,7 @@ gem 'authlogic', "2.1.5"
 gem 'coderay'#, :git => 'git://github.com/Flameeyes/redcloth.git'#, :branch => 'ruby1.9.2'
 gem 'RedCloth'#, :git => 'git://github.com/jgarber/redcloth.git'
 
-gem 'mysql2'
+gem 'pg'
 #gem 'sqlite3-ruby', :require => 'sqlite3'
 
 gem 'bluecloth'
@@ -33,6 +33,7 @@ group :development do
   gem "autotest-rails-pure"
   gem "nifty-generators", :git => 'git://github.com/drhenner/nifty-generators.git'
   gem "rails-erd"
+  gem 'mysql2'
   #gem "ruby-debug19"
   #gem "ruby-debug"
 end
