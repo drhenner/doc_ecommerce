@@ -101,39 +101,7 @@
 </dl>
 <div class="clear"></div>
 
-<h2>Overview</h2><div class="docstring">
-  <div class="discussion">
-    
-<h2>Schema Information</h2>
 
-<p>Table name: products</p>
-
-<pre class="code ruby"><code>id                   :integer(4)      not null, primary key
-name                 :string(255)     not null
-description          :text
-product_keywords     :text
-product_type_id      :integer(4)      not null
-prototype_id         :integer(4)
-shipping_category_id :integer(4)      not null
-permalink            :string(255)     not null
-available_at         :datetime
-deleted_at           :datetime
-meta_keywords        :string(255)
-meta_description     :string(255)
-featured             :boolean(1)      default(FALSE)
-created_at           :datetime
-updated_at           :datetime
-description_markup   :text
-active               :boolean(1)      default(FALSE)
-brand_id             :integer(4)</code></pre>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
 
 
 
@@ -254,7 +222,7 @@ featured product the first product will be returned.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#standard_search-class_method" title="standard_search (class method)">+ (Product) <strong>standard_search</strong>(args, params) </a>
+      <a href="#standard_search-class_method" title="standard_search (class method)">+ (Product) <strong>standard_search</strong>(args) </a>
     
 
     
@@ -283,6 +251,28 @@ featured product the first product will be returned.</p>
     </h2>
 
     <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#activate%21-instance_method" title="#activate! (instance method)">- (Object) <strong>activate!</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
       
         <li class="public ">
   <span class="summary_signature">
@@ -447,30 +437,6 @@ featured product the first product will be returned.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#last_master_variant-instance_method" title="#last_master_variant (instance method)">- (Variant or nil) <strong>last_master_variant</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>find the last master variant that was inactivated.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#price-instance_method" title="#price (instance method)">- (Decimal) <strong>price</strong> </a>
     
 
@@ -486,8 +452,7 @@ featured product the first product will be returned.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Price of master variant or last_master_variant if all the variants are
-inactive.</p>
+<p>Price of cheapest variant.</p>
 </div></span>
   
 </li>
@@ -593,7 +558,7 @@ method sets the product_keywords attribute to an array of these values.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#tax_rate-instance_method" title="#tax_rate (instance method)">- (TaxRate) <strong>tax_rate</strong>(state_id, time = Time.zone.now) </a>
+      <a href="#tax_rate-instance_method" title="#tax_rate (instance method)">- (TaxRate) <strong>tax_rate</strong>(region_id, time = Time.zone.now) </a>
     
 
     
@@ -650,12 +615,12 @@ method sets the product_keywords attribute to an array of these values.</p>
       <pre class="lines">
 
 
-30
-31
-32</pre>
+32
+33
+34</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/product.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'app/models/product.rb', line 32</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_available_shipping_rates'>available_shipping_rates</span>
   <span class='ivar'>@available_shipping_rates</span>
@@ -687,14 +652,14 @@ method sets the product_keywords attribute to an array of these values.</p>
       <pre class="lines">
 
 
-188
-189
-190
-191
-192</pre>
+166
+167
+168
+169
+170</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/product.rb', line 188</span>
+      <pre class="code"><span class="info file"># File 'app/models/product.rb', line 166</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span>
   <span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>products.deleted_at IS NULL OR products.deleted_at &gt; ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_zone'>zone</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='rparen'>)</span>
@@ -776,32 +741,24 @@ method sets the product_keywords attribute to an array of these values.</p>
       <pre class="lines">
 
 
-218
-219
-220
-221
-222
-223
-224
-225
-226
-227
-228
-229
-230
-231
-232</pre>
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/product.rb', line 218</span>
+      <pre class="code"><span class="info file"># File 'app/models/product.rb', line 201</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_admin_grid'>admin_grid</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id identifier rubyid_active_state'>active_state</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
-
-  <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:page</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='int'>1</span>
-  <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:rows</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='const'>SETTINGS</span><span class='lbracket'>[</span><span class='symbol'>:admin_grid_rows</span><span class='rbracket'>]</span>
-
-  <span class='id identifier rubyid_grid'>grid</span> <span class='op'>=</span> <span class='id identifier rubyid_includes'>includes</span><span class='lparen'>(</span><span class='symbol'>:variants</span><span class='rparen'>)</span><span class='comment'>#paginate({:page =&gt; params[:page]})
-</span>  <span class='id identifier rubyid_grid'>grid</span> <span class='op'>=</span> <span class='id identifier rubyid_grid'>grid</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>products.deleted_at IS NOT NULL AND products.deleted_at &gt; ?</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='lparen'>(</span><span class='symbol'>:db</span><span class='rparen'>)</span><span class='rbracket'>]</span><span class='rparen'>)</span>  <span class='kw'>if</span> <span class='id identifier rubyid_active_state'>active_state</span> <span class='op'>==</span> <span class='kw'>false</span><span class='comment'>##  note nil != false
+  <span class='id identifier rubyid_grid'>grid</span> <span class='op'>=</span> <span class='id identifier rubyid_includes'>includes</span><span class='lparen'>(</span><span class='symbol'>:variants</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_grid'>grid</span> <span class='op'>=</span> <span class='id identifier rubyid_grid'>grid</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>products.deleted_at IS NOT NULL AND products.deleted_at &gt; ?</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='lparen'>(</span><span class='symbol'>:db</span><span class='rparen'>)</span><span class='rbracket'>]</span><span class='rparen'>)</span>  <span class='kw'>if</span> <span class='id identifier rubyid_active_state'>active_state</span> <span class='op'>==</span> <span class='kw'>false</span><span class='comment'>##  note nil != false
 </span>  <span class='id identifier rubyid_grid'>grid</span> <span class='op'>=</span> <span class='id identifier rubyid_grid'>grid</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>products.deleted_at IS NULL     OR  products.deleted_at &lt; ?</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='lparen'>(</span><span class='symbol'>:db</span><span class='rparen'>)</span><span class='rbracket'>]</span><span class='rparen'>)</span>  <span class='kw'>if</span> <span class='id identifier rubyid_active_state'>active_state</span> <span class='op'>==</span> <span class='kw'>true</span>
   <span class='id identifier rubyid_grid'>grid</span> <span class='op'>=</span> <span class='id identifier rubyid_grid'>grid</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>products.name LIKE ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>                 <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:name</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='tstring_content'>%</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>                  <span class='kw'>if</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:name</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_present?'>present?</span>
   <span class='id identifier rubyid_grid'>grid</span> <span class='op'>=</span> <span class='id identifier rubyid_grid'>grid</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>products.product_type_id = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>      <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:product_type_id</span><span class='rbracket'>]</span><span class='rparen'>)</span>       <span class='kw'>if</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:product_type_id</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_present?'>present?</span>
@@ -870,13 +827,13 @@ featured product the first product will be returned</p>
       <pre class="lines">
 
 
-183
-184
-185
-186</pre>
+161
+162
+163
+164</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/product.rb', line 183</span>
+      <pre class="code"><span class="info file"># File 'app/models/product.rb', line 161</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_featured'>featured</span>
   <span class='id identifier rubyid_product'>product</span> <span class='op'>=</span> <span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='lbrace'>{</span> <span class='symbol'>:products</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span><span class='symbol'>:featured</span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='rbrace'>}</span> <span class='rbrace'>}</span> <span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_includes'>includes</span><span class='lparen'>(</span><span class='symbol'>:images</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
@@ -890,7 +847,7 @@ featured product the first product will be returned</p>
       <div class="method_details ">
   <h3 class="signature " id="standard_search-class_method">
   
-    + (<tt><span class='object_link'><a href="" title="Product (class)">Product</a></span></tt>) <strong>standard_search</strong>(args, params) 
+    + (<tt><span class='object_link'><a href="" title="Product (class)">Product</a></span></tt>) <strong>standard_search</strong>(args) 
   
 
   
@@ -957,21 +914,19 @@ featured product the first product will be returned</p>
       <pre class="lines">
 
 
-171
-172
-173
-174
-175
-176</pre>
+150
+151
+152
+153
+154</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/product.rb', line 171</span>
+      <pre class="code"><span class="info file"># File 'app/models/product.rb', line 150</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_standard_search'>standard_search</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_standard_search'>standard_search</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
     <span class='const'>Product</span><span class='period'>.</span><span class='id identifier rubyid_includes'>includes</span><span class='lparen'>(</span> <span class='lbracket'>[</span><span class='symbol'>:properties</span><span class='comma'>,</span> <span class='symbol'>:images</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span>
             <span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>products.name LIKE ? OR products.meta_keywords LIKE ?</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_args'>args</span><span class='rbrace'>}</span><span class='tstring_content'>%</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_args'>args</span><span class='rbrace'>}</span><span class='tstring_content'>%</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span>
-            <span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>products.deleted_at IS NULL OR products.deleted_at &gt; ?</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_zone'>zone</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span>
-            <span class='id identifier rubyid_paginate'>paginate</span> <span class='symbol'>:page</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:page</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span><span class='comma'>,</span> <span class='symbol'>:per_page</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:rows</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
+            <span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>products.deleted_at IS NULL OR products.deleted_at &gt; ?</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_zone'>zone</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='rbracket'>]</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -985,7 +940,39 @@ featured product the first product will be returned</p>
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="active-instance_method">
+  <h3 class="signature first" id="activate!-instance_method">
+  
+    - (<tt>Object</tt>) <strong>activate!</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+179
+180
+181
+182</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/product.rb', line 179</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_activate!'>activate!</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_deleted_at'>deleted_at</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='id identifier rubyid_save'>save</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="active-instance_method">
   
     - (<tt>Object</tt>) <strong>active</strong>(at = Time.zone.now) 
   
@@ -999,15 +986,15 @@ featured product the first product will be returned</p>
       <pre class="lines">
 
 
-194
-195
-196</pre>
+172
+173
+174</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/product.rb', line 194</span>
+      <pre class="code"><span class="info file"># File 'app/models/product.rb', line 172</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_active'>active</span><span class='lparen'>(</span><span class='id identifier rubyid_at'>at</span> <span class='op'>=</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_zone'>zone</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_deleted_at'>deleted_at</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>||</span> <span class='id identifier rubyid_deleted_at'>deleted_at</span> <span class='op'>&gt;</span> <span class='id identifier rubyid_at'>at</span>
+  <span class='id identifier rubyid_deleted_at'>deleted_at</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>||</span> <span class='id identifier rubyid_deleted_at'>deleted_at</span> <span class='op'>&gt;=</span> <span class='id identifier rubyid_at'>at</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1051,12 +1038,12 @@ featured product the first product will be returned</p>
       <pre class="lines">
 
 
-197
-198
-199</pre>
+175
+176
+177</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/product.rb', line 197</span>
+      <pre class="code"><span class="info file"># File 'app/models/product.rb', line 175</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_active?'>active?</span><span class='lparen'>(</span><span class='id identifier rubyid_at'>at</span> <span class='op'>=</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_zone'>zone</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_active'>active</span><span class='lparen'>(</span><span class='id identifier rubyid_at'>at</span><span class='rparen'>)</span>
@@ -1103,12 +1090,12 @@ featured product the first product will be returned</p>
       <pre class="lines">
 
 
-201
-202
-203</pre>
+184
+185
+186</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/product.rb', line 201</span>
+      <pre class="code"><span class="info file"># File 'app/models/product.rb', line 184</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_available?'>available?</span>
   <span class='id identifier rubyid_active'>active</span>
@@ -1132,7 +1119,8 @@ featured product the first product will be returned</p>
     
 <p>returns the brand's name or a blank string</p>
 
-<pre class="code ruby"><code>ex: obj.brand_name =&gt; 'Nike'</code></pre>
+<pre class="ruby"><span class="ruby-identifier">ex</span><span class="ruby-operator">:</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">brand_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'Nike'</span>
+</pre>
 
 
   </div>
@@ -1174,12 +1162,12 @@ featured product the first product will be returned</p>
       <pre class="lines">
 
 
-210
-211
-212</pre>
+193
+194
+195</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/product.rb', line 210</span>
+      <pre class="code"><span class="info file"># File 'app/models/product.rb', line 193</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_brand_name'>brand_name</span>
   <span class='id identifier rubyid_brand_id'>brand_id</span> <span class='op'>?</span> <span class='id identifier rubyid_brand'>brand</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
@@ -1253,12 +1241,12 @@ featured product the first product will be returned</p>
       <pre class="lines">
 
 
-130
-131
-132</pre>
+122
+123
+124</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/product.rb', line 130</span>
+      <pre class="code"><span class="info file"># File 'app/models/product.rb', line 122</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_display_price_range'>display_price_range</span><span class='lparen'>(</span><span class='id identifier rubyid_j'>j</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'> to </span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_price_range'>price_range</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span>
@@ -1332,12 +1320,12 @@ featured product the first product will be returned</p>
       <pre class="lines">
 
 
-97
-98
-99</pre>
+89
+90
+91</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/product.rb', line 97</span>
+      <pre class="code"><span class="info file"># File 'app/models/product.rb', line 89</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_featured_image'>featured_image</span><span class='lparen'>(</span><span class='id identifier rubyid_image_size'>image_size</span> <span class='op'>=</span> <span class='symbol'>:small</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_images'>images</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span> <span class='op'>?</span> <span class='id identifier rubyid_images'>images</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span><span class='period'>.</span><span class='id identifier rubyid_photo'>photo</span><span class='period'>.</span><span class='id identifier rubyid_url'>url</span><span class='lparen'>(</span><span class='id identifier rubyid_image_size'>image_size</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>no_image_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_image_size'>image_size</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rbrace'>}</span><span class='tstring_content'>.jpg</span><span class='tstring_end'>&quot;</span></span>
@@ -1362,89 +1350,15 @@ featured product the first product will be returned</p>
       <pre class="lines">
 
 
-73
-74
-75</pre>
+71
+72
+73</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/product.rb', line 73</span>
+      <pre class="code"><span class="info file"># File 'app/models/product.rb', line 71</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_hero_variant'>hero_variant</span>
-  <span class='id identifier rubyid_master_variant'>master_variant</span> <span class='op'>?</span> <span class='id identifier rubyid_master_variant'>master_variant</span> <span class='op'>:</span> <span class='id identifier rubyid_variants'>variants</span><span class='period'>.</span><span class='id identifier rubyid_limit'>limit</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="last_master_variant-instance_method">
-  
-    - (<tt><span class='object_link'><a href="Variant.html" title="Variant (class)">Variant</a></span> or nil</tt>) <strong>last_master_variant</strong> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>find the last master variant that was inactivated</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'></span>
-      
-      
-        <span class='type'>(<tt>none</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt><span class='object_link'><a href="Variant.html" title="Variant (class)">Variant</a></span> or nil</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>variant of the last master variant that was inactivated</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-161
-162
-163</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'app/models/product.rb', line 161</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_last_master_variant'>last_master_variant</span>
-  <span class='id identifier rubyid_inactive_master_variants'>inactive_master_variants</span><span class='period'>.</span><span class='id identifier rubyid_try'>try</span><span class='lparen'>(</span><span class='symbol'>:last</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_active_variants'>active_variants</span><span class='period'>.</span><span class='id identifier rubyid_detect'>detect</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_v'>v</span><span class='op'>|</span> <span class='id identifier rubyid_v'>v</span><span class='period'>.</span><span class='id identifier rubyid_master'>master</span> <span class='rbrace'>}</span> <span class='op'>||</span> <span class='id identifier rubyid_active_variants'>active_variants</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1463,8 +1377,7 @@ featured product the first product will be returned</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Price of master variant or last_master_variant if all the variants are
-inactive</p>
+<p>Price of cheapest variant</p>
 
 
   </div>
@@ -1516,15 +1429,15 @@ inactive</p>
       <pre class="lines">
 
 
-105
-106
-107</pre>
+97
+98
+99</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/product.rb', line 105</span>
+      <pre class="code"><span class="info file"># File 'app/models/product.rb', line 97</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_price'>price</span>
-  <span class='id identifier rubyid_master_variant'>master_variant</span> <span class='op'>?</span> <span class='id identifier rubyid_master_variant'>master_variant</span><span class='period'>.</span><span class='id identifier rubyid_price'>price</span> <span class='op'>:</span> <span class='id identifier rubyid_last_master_variant'>last_master_variant</span><span class='period'>.</span><span class='id identifier rubyid_price'>price</span>
+  <span class='id identifier rubyid_active_variants'>active_variants</span><span class='period'>.</span><span class='id identifier rubyid_present?'>present?</span> <span class='op'>?</span> <span class='id identifier rubyid_price_range'>price_range</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span> <span class='op'>:</span> <span class='id identifier rubyid_raise'>raise</span><span class='lparen'>(</span> <span class='const'>VariantRequiredError</span> <span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1576,7 +1489,7 @@ inactive</p>
       
       
         &mdash;
-        <div class='inline'><dl class="rdoc-list"><dt>Low price, High price</dt>
+        <div class='inline'><dl class="rdoc-list label-list"><dt>Low price, High price
 <dd></dd></dl>
 </div>
       
@@ -1590,27 +1503,19 @@ inactive</p>
       <pre class="lines">
 
 
-138
-139
-140
-141
-142
-143
-144
-145
-146</pre>
+130
+131
+132
+133
+134</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/product.rb', line 138</span>
+      <pre class="code"><span class="info file"># File 'app/models/product.rb', line 130</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_price_range'>price_range</span>
   <span class='kw'>return</span> <span class='ivar'>@price_range</span> <span class='kw'>if</span> <span class='ivar'>@price_range</span>
   <span class='kw'>return</span> <span class='ivar'>@price_range</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>N/A</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>N/A</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id identifier rubyid_active_variants'>active_variants</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
-  <span class='ivar'>@price_range</span> <span class='op'>=</span> <span class='id identifier rubyid_active_variants'>active_variants</span><span class='period'>.</span><span class='id identifier rubyid_inject'>inject</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id identifier rubyid_active_variants'>active_variants</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span><span class='period'>.</span><span class='id identifier rubyid_price'>price</span><span class='comma'>,</span> <span class='id identifier rubyid_active_variants'>active_variants</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span><span class='period'>.</span><span class='id identifier rubyid_price'>price</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='id identifier rubyid_variant'>variant</span><span class='op'>|</span>
-    <span class='id identifier rubyid_a'>a</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_variant'>variant</span><span class='period'>.</span><span class='id identifier rubyid_price'>price</span> <span class='kw'>if</span> <span class='id identifier rubyid_variant'>variant</span><span class='period'>.</span><span class='id identifier rubyid_price'>price</span> <span class='op'>&lt;</span> <span class='id identifier rubyid_a'>a</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_a'>a</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_variant'>variant</span><span class='period'>.</span><span class='id identifier rubyid_price'>price</span> <span class='kw'>if</span> <span class='id identifier rubyid_variant'>variant</span><span class='period'>.</span><span class='id identifier rubyid_price'>price</span> <span class='op'>&gt;</span> <span class='id identifier rubyid_a'>a</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_a'>a</span>
-  <span class='kw'>end</span>
+  <span class='ivar'>@price_range</span> <span class='op'>=</span> <span class='id identifier rubyid_active_variants'>active_variants</span><span class='period'>.</span><span class='id identifier rubyid_minmax'>minmax</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span><span class='id identifier rubyid_b'>b</span><span class='op'>|</span> <span class='id identifier rubyid_a'>a</span><span class='period'>.</span><span class='id identifier rubyid_price'>price</span> <span class='op'>&lt;=&gt;</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_price'>price</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:price</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1678,12 +1583,12 @@ inactive</p>
       <pre class="lines">
 
 
-153
-154
-155</pre>
+141
+142
+143</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/product.rb', line 153</span>
+      <pre class="code"><span class="info file"># File 'app/models/product.rb', line 141</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_price_range?'>price_range?</span>
   <span class='op'>!</span><span class='lparen'>(</span><span class='id identifier rubyid_price_range'>price_range</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span> <span class='op'>==</span> <span class='id identifier rubyid_price_range'>price_range</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span><span class='rparen'>)</span>
@@ -1752,12 +1657,12 @@ inactive</p>
       <pre class="lines">
 
 
-122
-123
-124</pre>
+114
+115
+116</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/product.rb', line 122</span>
+      <pre class="code"><span class="info file"># File 'app/models/product.rb', line 114</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_set_keywords'>set_keywords</span>
   <span class='id identifier rubyid_product_keywords'>product_keywords</span> <span class='op'>?</span> <span class='id identifier rubyid_product_keywords'>product_keywords</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>, </span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
@@ -1827,12 +1732,12 @@ method sets the product_keywords attribute to an array of these values</p>
       <pre class="lines">
 
 
-114
-115
-116</pre>
+106
+107
+108</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/product.rb', line 114</span>
+      <pre class="code"><span class="info file"># File 'app/models/product.rb', line 106</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_set_keywords='>set_keywords=</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_product_keywords'>product_keywords</span> <span class='op'>=</span> <span class='id identifier rubyid_value'>value</span> <span class='op'>?</span> <span class='id identifier rubyid_value'>value</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>,</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_w'>w</span><span class='op'>|</span> <span class='id identifier rubyid_w'>w</span><span class='period'>.</span><span class='id identifier rubyid_strip'>strip</span><span class='rbrace'>}</span> <span class='op'>:</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -1845,7 +1750,7 @@ method sets the product_keywords attribute to an array of these values</p>
       <div class="method_details ">
   <h3 class="signature " id="tax_rate-instance_method">
   
-    - (<tt><span class='object_link'><a href="TaxRate.html" title="TaxRate (class)">TaxRate</a></span></tt>) <strong>tax_rate</strong>(state_id, time = Time.zone.now) 
+    - (<tt><span class='object_link'><a href="TaxRate.html" title="TaxRate (class)">TaxRate</a></span></tt>) <strong>tax_rate</strong>(region_id, time = Time.zone.now) 
   
 
   
@@ -1919,27 +1824,15 @@ method sets the product_keywords attribute to an array of these values</p>
       <pre class="lines">
 
 
-83
-84
-85
-86
-87
-88
-89
-90
-91</pre>
+81
+82
+83</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/product.rb', line 83</span>
+      <pre class="code"><span class="info file"># File 'app/models/product.rb', line 81</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_tax_rate'>tax_rate</span><span class='lparen'>(</span><span class='id identifier rubyid_state_id'>state_id</span><span class='comma'>,</span> <span class='id identifier rubyid_time'>time</span> <span class='op'>=</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_zone'>zone</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='rparen'>)</span>
-  <span class='const'>TaxRate</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span> <span class='const'>Settings</span><span class='period'>.</span><span class='id identifier rubyid_tax_per_state_id'>tax_per_state_id</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>state_id</span><span class='tstring_end'>'</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>country_id</span><span class='tstring_end'>'</span></span><span class='rbrace'>}</span><span class='tstring_content'> = ? AND
-                 start_date &lt;= ? AND
-                 (end_date &gt; ? OR end_date IS NULL) AND
-                 active = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_state_id'>state_id</span><span class='comma'>,</span>
-                              <span class='id identifier rubyid_time'>time</span><span class='period'>.</span><span class='id identifier rubyid_to_date'>to_date</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='lparen'>(</span><span class='symbol'>:db</span><span class='rparen'>)</span><span class='comma'>,</span>
-                              <span class='id identifier rubyid_time'>time</span><span class='period'>.</span><span class='id identifier rubyid_to_date'>to_date</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='lparen'>(</span><span class='symbol'>:db</span><span class='rparen'>)</span><span class='comma'>,</span>
-                              <span class='kw'>true</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>start_date DESC</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_tax_rate'>tax_rate</span><span class='lparen'>(</span><span class='id identifier rubyid_region_id'>region_id</span><span class='comma'>,</span> <span class='id identifier rubyid_time'>time</span> <span class='op'>=</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_zone'>zone</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='rparen'>)</span>
+  <span class='const'>TaxRate</span><span class='period'>.</span><span class='id identifier rubyid_for_region'>for_region</span><span class='lparen'>(</span><span class='id identifier rubyid_region_id'>region_id</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_at'>at</span><span class='lparen'>(</span><span class='id identifier rubyid_time'>time</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>start_date DESC</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1951,7 +1844,7 @@ method sets the product_keywords attribute to an array of these values</p>
 </div>
 
     <div id="footer">
-  Generated on Mon Jan 21 18:43:36 2013 by
+  Generated on Mon Feb  4 13:23:14 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.9.3).
 </div>

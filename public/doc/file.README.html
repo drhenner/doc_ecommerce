@@ -82,7 +82,7 @@ The cart allows you to track your customers' <em>cart history</em> and includes 
 The gem list is quite large and the project still has a large wish list.
 In spite of that, it is currently the most complete Rails solution, and it will only get better.</p>
 
-<p>Please use <em>Ruby 1.9.2</em> and enjoy <em>Rails 3.2</em>.</p>
+<p>Please use <em>Ruby 1.9.3</em> and enjoy <em>Rails 3.2</em>.</p>
 
 <p>ROR Ecommerce is designed so that if you understand Rails you will understand ROR_ecommerce.
 There is nothing in this project besides what you might see in a normal Rails application.
@@ -92,17 +92,26 @@ If you don't like something, you are free to just change it like you would in an
 We will always need help with UI, documentation, and code, so feel free to pitch in.
 To get started, simply fork this repo, make <em>any</em> changes (big or small), and create a pull request.</p>
 
+<h2>DEMO</h2>
+
+<p>Take a look at <a href="https://ror-e.herokuapp.com">The Demo</a>.
+The login name is test@ror-e.com with a password => test123</p>
+
 <h2>Getting Started</h2>
 
 <p>Please feel free to ask/answer questions in our <a href="http://groups.google.com/group/ror_ecommerce">Google Group</a>.</p>
 
-<p>Install RVM with Ruby 1.9.2 or Ruby 1.9.3.
-If you have 1.9.2 or 1.9.3 on your system you're good to go.
+<p>Install RVM with Ruby 1.9.3.
+If you have 1.9.3 on your system you're good to go.
 Please refer to the <a href="http://beginrescueend.com/rvm/basics/">RVM</a> site for more details.</p>
 
 <p>Copy the <code>database.yml</code> for your setup.
 For SQLite3, <code>cp config/database.yml.sqlite3 config/database.yml</code>.
 For MySQL, <code>cp config/database.yml.mysql config/database.yml</code> and update your username/password.</p>
+
+<p>If you are using the mysql dmg file to install mysql you will need to edit your ~/.bash_profile and include this:</p>
+
+<p>  export DYLD<em>LIBRARY</em>PATH=/usr/local/mysql/lib:$DYLD<em>LIBRARY</em>PATH</p>
 
 <p>Run <code>rake secret</code> and copy/paste the output as <code>encryption_key</code> in <code>config/config.yml</code>.</p>
 
@@ -116,6 +125,45 @@ rake db:test:prepare
 <p>Once everything is set up, start the server with <code>rails server</code> and direct your web browser to <a href="http://localhost:3000/admin/overviews">localhost:3000/admin/overviews</a>.
 Write down the username/password (these are only shown once) and follow the directions.</p>
 
+<h2>Environmental Variables</h2>
+
+<p>Most users are using Amazon S3 or Heroku.
+Thus we have decided to have a setup easy to get your site up and running as quickly as possible
+in this production environment.  Hence you should add the following ENV variables:</p>
+
+<pre class="code ruby"><code>FOG_DIRECTORY     =&gt; your bucket on AWS
+AWS_ACCESS_KEY_ID =&gt; your access key on AWS
+AWS_ACCESS_KEY_ID =&gt; your secret key on AWS
+AUTHNET_LOGIN     =&gt; if you use authorize.net otherwise change config/settings.yml &amp;&amp; config/environments/*.rb
+AUTHNET_PASSWORD  =&gt; if you use authorize.net otherwise change config/settings.yml &amp;&amp; config/environments/*.rb
+</code></pre>
+
+<p>On linux:</p>
+
+<pre class="code ruby"><code><span class='id identifier rubyid_export'>export</span> <span class='const'>FOG_DIRECTORY</span><span class='op'>=</span><span class='id identifier rubyid_xxxxxxxxxxxxxxx'>xxxxxxxxxxxxxxx</span>
+<span class='id identifier rubyid_export'>export</span> <span class='const'>AWS_ACCESS_KEY_ID</span><span class='op'>=</span><span class='id identifier rubyid_xxxxxxxxxxxxxxx'>xxxxxxxxxxxxxxx</span>
+<span class='id identifier rubyid_export'>export</span> <span class='const'>AWS_SECRET_ACCESS_KEY</span><span class='op'>=</span><span class='id identifier rubyid_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>
+<span class='id identifier rubyid_export'>export</span> <span class='const'>AUTHNET_LOGIN</span><span class='op'>=</span><span class='id identifier rubyid_xxxxxxxxxxx'>xxxxxxxxxxx</span>
+<span class='id identifier rubyid_export'>export</span> <span class='const'>AUTHNET_PASSWORD</span><span class='op'>=</span><span class='id identifier rubyid_xxxxxxxxxxxxxxx'>xxxxxxxxxxxxxxx</span>
+</code></pre>
+
+<p>On Heroku:</p>
+
+<pre class="code ruby"><code>heroku config:add FOG_DIRECTORY=xxxxxxxxxxxxxxx
+heroku config:add AWS_ACCESS_KEY_ID=xxxxxxxxxxxxxxx
+heroku config:add AWS_SECRET_ACCESS_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+heroku config:add AUTHNET_LOGIN=xxxxxxxxxxx
+heroku config:add AUTHNET_PASSWORD=xxxxxxxxxxxxxxx
+
+heroku labs:enable user-env-compile -a myapp
+</code></pre>
+
+<p>This is needed for using sendgrid on heroku(config/initializers/mail.rb):</p>
+
+<pre class="code ruby"><code>heroku config:add SENDGRID_USERNAME=xxxxxxxxxxx
+heroku config:add SENDGRID_PASSWORD=xxxxxxxxxxxxxxx
+</code></pre>
+
 <h2>Quick Evaluation</h2>
 
 <p>If you just want to see what ror_ecommerce looks like, before you enter any products into the database, run the following command:</p>
@@ -127,6 +175,20 @@ Write down the username/password (these are only shown once) and follow the dire
 Note: make sure you have <code>config/settings.yml</code> set up correctly before you try to checkout.
 Also, please take a look at <a href="http://www.ror-e.com/info/videos/7">The 15 minute e-commerce video</a>.</p>
 
+<h2>ImageMagick and rMagick on OS X 10.8</h2>
+
+<hr />
+
+<p>If installing rMagick on OS X 10.8 and using Homebrew to install ImageMagick, you will need to symlink across some files or rMagick will not be able to build.</p>
+
+<p>Do the following in the case of a Homebrew installed ImageMagick(and homebrew had issues):</p>
+
+<pre class="code ruby"><code>* cd /usr/local/Cellar/imagemagick/6.8.0-10/lib
+* ln -s libMagick++-Q16.7.dylib   libMagick++.dylib
+* ln -s libMagickCore-Q16.7.dylib libMagickCore.dylib
+* ln -s libMagickWand-Q16.7.dylib libMagickWand.dylib
+</code></pre>
+
 <h2>YARDOCS</h2>
 
 <p>If you would like to read the docs, you can generate them with the following command:</p>
@@ -134,10 +196,14 @@ Also, please take a look at <a href="http://www.ror-e.com/info/videos/7">The 15 
 <pre class="code ruby"><code>yardoc --no-private --protected app/models/*.rb
 </code></pre>
 
-<h4>Compass Install</h4>
+<h4>Payment Gateways</h4>
 
 <p>First, create <code>config/settings.yml</code> and change the encryption key and paypal/auth.net information.
 You can also change <code>config/settings.yml.example</code> to <code>config/settings.yml</code> until you get your real info.</p>
+
+<p>To change from authlogic to any other gateway go to</p>
+
+<h2>Paperclip</h2>
 
 <p>Paperclip will throw errors if not configured correctly.
 You will need to find out where Imagemagick is installed.
@@ -244,6 +310,7 @@ You need to run <code>rake sunspot:solr:start</code>, or remove Solr completely.
 
 <ul>
 <li>more documentation / videos for creating products/variants</li>
+<li>create referral programs so users can earn store credits</li>
 </ul>
 
 
@@ -260,7 +327,7 @@ You need to run <code>rake sunspot:solr:start</code>, or remove Solr completely.
 <p>Have fun!!!</p></div></div>
 
     <div id="footer">
-  Generated on Mon Jan 21 18:43:31 2013 by
+  Generated on Mon Feb  4 13:23:13 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.9.3).
 </div>

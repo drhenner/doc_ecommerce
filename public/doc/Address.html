@@ -104,7 +104,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<h2>Schema Information</h2>
+<h2 id="label-Schema+Information">Schema Information</h2>
 
 <p>Table name: addresses</p>
 
@@ -376,34 +376,6 @@ updated_at        :datetime</code></pre>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#save_default_address-instance_method" title="#save_default_address (instance method)">- (Object) <strong>save_default_address</strong>(object, params) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Use this method to create an address</p>
-
-<h1>&gt; This method will create a new address object and if the address is a default address it</h1>
-
-<h1>&gt; will make all other addresses that belong to the user non-default.</h1>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#shipping_method_ids-instance_method" title="#shipping_method_ids (instance method)">- (Object) <strong>shipping_method_ids</strong> </a>
     
 
@@ -534,12 +506,12 @@ address.</p>
       <pre class="lines">
 
 
-57
-58
-59</pre>
+55
+56
+57</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/address.rb', line 57</span>
+      <pre class="code"><span class="info file"># File 'app/models/address.rb', line 55</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_replace_address_id'>replace_address_id</span>
   <span class='ivar'>@replace_address_id</span>
@@ -599,12 +571,12 @@ address.</p>
       <pre class="lines">
 
 
-86
-87
-88</pre>
+84
+85
+86</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/address.rb', line 86</span>
+      <pre class="code"><span class="info file"># File 'app/models/address.rb', line 84</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_address_attributes'>address_attributes</span>
   <span class='id identifier rubyid_attributes'>attributes</span><span class='period'>.</span><span class='id identifier rubyid_delete_if'>delete_if</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='op'>|</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>id</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>updated_at</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>created_at</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='op'>|</span> <span class='id identifier rubyid_k'>k</span> <span class='op'>==</span> <span class='id identifier rubyid_key'>key</span> <span class='rbrace'>}</span><span class='rbrace'>}</span>
@@ -678,12 +650,12 @@ address.</p>
       <pre class="lines">
 
 
-168
-169
-170</pre>
+135
+136
+137</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/address.rb', line 168</span>
+      <pre class="code"><span class="info file"># File 'app/models/address.rb', line 135</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_address_lines'>address_lines</span><span class='lparen'>(</span><span class='id identifier rubyid_join_chars'>join_chars</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>, </span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
   <span class='lbracket'>[</span><span class='id identifier rubyid_address1'>address1</span><span class='comma'>,</span> <span class='id identifier rubyid_address2'>address2</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_delete_if'>delete_if</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_add'>add</span><span class='op'>|</span> <span class='id identifier rubyid_add'>add</span><span class='period'>.</span><span class='id identifier rubyid_blank?'>blank?</span><span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='id identifier rubyid_join_chars'>join_chars</span><span class='rparen'>)</span>
@@ -736,6 +708,8 @@ address.</p>
       <pre class="lines">
 
 
+92
+93
 94
 95
 96
@@ -744,12 +718,10 @@ address.</p>
 99
 100
 101
-102
-103
-104</pre>
+102</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/address.rb', line 94</span>
+      <pre class="code"><span class="info file"># File 'app/models/address.rb', line 92</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_cc_params'>cc_params</span>
   <span class='lbrace'>{</span> <span class='symbol'>:name</span>     <span class='op'>=&gt;</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span>
@@ -826,12 +798,12 @@ address.</p>
       <pre class="lines">
 
 
-186
-187
-188</pre>
+153
+154
+155</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/address.rb', line 186</span>
+      <pre class="code"><span class="info file"># File 'app/models/address.rb', line 153</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_city_state_name'>city_state_name</span>
   <span class='lbracket'>[</span><span class='id identifier rubyid_city'>city</span><span class='comma'>,</span> <span class='id identifier rubyid_state_abbr_name'>state_abbr_name</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>, </span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
@@ -900,12 +872,12 @@ address.</p>
       <pre class="lines">
 
 
-202
-203
-204</pre>
+169
+170
+171</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/address.rb', line 202</span>
+      <pre class="code"><span class="info file"># File 'app/models/address.rb', line 169</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_city_state_zip'>city_state_zip</span>
   <span class='lbracket'>[</span><span class='id identifier rubyid_city_state_name'>city_state_name</span><span class='comma'>,</span> <span class='id identifier rubyid_zip_code'>zip_code</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'> </span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
@@ -974,12 +946,12 @@ address.</p>
       <pre class="lines">
 
 
-160
-161
-162</pre>
+127
+128
+129</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/address.rb', line 160</span>
+      <pre class="code"><span class="info file"># File 'app/models/address.rb', line 127</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_full_address_array'>full_address_array</span>
   <span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_address1'>address1</span><span class='comma'>,</span> <span class='id identifier rubyid_address2'>address2</span><span class='comma'>,</span> <span class='id identifier rubyid_city_state_zip'>city_state_zip</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_compact'>compact</span>
@@ -1033,13 +1005,13 @@ record in the db)</p>
       <pre class="lines">
 
 
+75
+76
 77
-78
-79
-80</pre>
+78</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/address.rb', line 77</span>
+      <pre class="code"><span class="info file"># File 'app/models/address.rb', line 75</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_inactive!'>inactive!</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span> <span class='op'>=</span> <span class='kw'>false</span>
@@ -1105,138 +1077,15 @@ record in the db)</p>
       <pre class="lines">
 
 
-69
-70
-71</pre>
+67
+68
+69</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/address.rb', line 69</span>
+      <pre class="code"><span class="info file"># File 'app/models/address.rb', line 67</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_name'>name</span>
   <span class='lbracket'>[</span><span class='id identifier rubyid_first_name'>first_name</span><span class='comma'>,</span> <span class='id identifier rubyid_last_name'>last_name</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_compact'>compact</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'> </span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="save_default_address-instance_method">
-  
-    - (<tt>Object</tt>) <strong>save_default_address</strong>(object, params) 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Use this method to create an address</p>
-
-<h1>&gt; This method will create a new address object and if the address is a default address it</h1>
-
-<h1>&gt; will make all other addresses that belong to the user non-default</h1>
-
-<p>@ return [Boolean] true or nil</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>object</span>
-      
-      
-        <span class='type'>(<tt>object</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>associated to the address (user or possibly a company in the future)</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>hash</span>
-      
-      
-        <span class='type'>(<tt>Hash</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>of attributes for the new address</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-132
-133
-134
-135
-136
-137
-138
-139
-140
-141
-142
-143
-144
-145
-146
-147
-148
-149
-150
-151
-152
-153
-154</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'app/models/address.rb', line 132</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_save_default_address'>save_default_address</span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
-  <span class='const'>Address</span><span class='period'>.</span><span class='id identifier rubyid_transaction'>transaction</span> <span class='kw'>do</span>
-    <span class='kw'>if</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:default</span><span class='rbracket'>]</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:default</span><span class='rbracket'>]</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>0</span><span class='tstring_end'>'</span></span>
-      <span class='const'>Address</span><span class='period'>.</span><span class='id identifier rubyid_update_all'>update_all</span><span class='lparen'>(</span> <span class='lbrace'>{</span> <span class='symbol'>:default</span>  <span class='op'>=&gt;</span> <span class='kw'>false</span><span class='rbrace'>}</span><span class='comma'>,</span>
-                          <span class='lbrace'>{</span> <span class='symbol'>:addresses</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span>
-                                <span class='symbol'>:addressable_id</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span>
-                                <span class='symbol'>:addressable_type</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
-                                          <span class='rbrace'>}</span> <span class='rbrace'>}</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_object'>object</span>
-      <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_default'>default</span> <span class='op'>=</span> <span class='kw'>true</span>
-    <span class='kw'>end</span>
-    <span class='kw'>if</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:billing_default</span><span class='rbracket'>]</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:billing_default</span><span class='rbracket'>]</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>0</span><span class='tstring_end'>'</span></span>
-      <span class='const'>Address</span><span class='period'>.</span><span class='id identifier rubyid_update_all'>update_all</span><span class='lparen'>(</span> <span class='lbrace'>{</span> <span class='symbol'>:billing_default</span> <span class='op'>=&gt;</span> <span class='kw'>false</span><span class='rbrace'>}</span><span class='comma'>,</span>
-                          <span class='lbrace'>{</span> <span class='symbol'>:addresses</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span>
-                                <span class='symbol'>:addressable_id</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span>
-                                <span class='symbol'>:addressable_type</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
-                                          <span class='rbrace'>}</span> <span class='rbrace'>}</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_object'>object</span>
-      <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_billing_default'>billing_default</span> <span class='op'>=</span> <span class='kw'>true</span>
-    <span class='kw'>end</span>
-    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_addressable'>addressable</span> <span class='op'>=</span> <span class='id identifier rubyid_object'>object</span>
-    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_save'>save</span>
-
-  <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1270,16 +1119,16 @@ address</p>
       <pre class="lines">
 
 
+105
+106
 107
 108
 109
 110
-111
-112
-113</pre>
+111</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/address.rb', line 107</span>
+      <pre class="code"><span class="info file"># File 'app/models/address.rb', line 105</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_shipping_method_ids'>shipping_method_ids</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_state_id'>state_id</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_state'>state</span><span class='period'>.</span><span class='id identifier rubyid_shipping_zone'>shipping_zone</span>
@@ -1321,16 +1170,16 @@ address</p>
       <pre class="lines">
 
 
+115
+116
 117
 118
 119
 120
-121
-122
-123</pre>
+121</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/address.rb', line 117</span>
+      <pre class="code"><span class="info file"># File 'app/models/address.rb', line 115</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_shipping_zone_id'>shipping_zone_id</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_state_id'>state_id</span>
@@ -1406,12 +1255,12 @@ the state_name column in the DB</code></pre>
       <pre class="lines">
 
 
-178
-179
-180</pre>
+145
+146
+147</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/address.rb', line 178</span>
+      <pre class="code"><span class="info file"># File 'app/models/address.rb', line 145</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_state_abbr_name'>state_abbr_name</span>
   <span class='id identifier rubyid_state'>state</span> <span class='op'>?</span> <span class='id identifier rubyid_state'>state</span><span class='period'>.</span><span class='id identifier rubyid_abbreviation'>abbreviation</span> <span class='op'>:</span> <span class='id identifier rubyid_state_name'>state_name</span>
@@ -1480,12 +1329,12 @@ the state_name column in the DB</code></pre>
       <pre class="lines">
 
 
-194
-195
-196</pre>
+161
+162
+163</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/address.rb', line 194</span>
+      <pre class="code"><span class="info file"># File 'app/models/address.rb', line 161</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_state_country_name'>state_country_name</span>
   <span class='lbracket'>[</span><span class='id identifier rubyid_state_abbr_name'>state_abbr_name</span><span class='comma'>,</span> <span class='id identifier rubyid_country'>country</span><span class='period'>.</span><span class='id identifier rubyid_try'>try</span><span class='lparen'>(</span><span class='symbol'>:name</span><span class='rparen'>)</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_compact'>compact</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>, </span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
@@ -1500,7 +1349,7 @@ the state_name column in the DB</code></pre>
 </div>
 
     <div id="footer">
-  Generated on Mon Jan 21 18:43:32 2013 by
+  Generated on Mon Feb  4 13:23:13 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.9.3).
 </div>

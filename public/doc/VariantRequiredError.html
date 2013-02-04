@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>
-  Class: ShippingMethod
+  Exception: VariantRequiredError
   
     &mdash; Documentation by YARD 0.8.3
   
@@ -31,10 +31,10 @@
     <div id="header">
       <div id="menu">
   
-    <a href="_index.html">Index (S)</a> &raquo;
+    <a href="_index.html">Index (V)</a> &raquo;
     
     
-    <span class="title">ShippingMethod</span>
+    <span class="title">VariantRequiredError</span>
   
 
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
@@ -63,7 +63,7 @@
 
     <iframe id="search_frame"></iframe>
 
-    <div id="content"><h1>Class: ShippingMethod
+    <div id="content"><h1>Exception: VariantRequiredError
   
   
   
@@ -73,14 +73,14 @@
   
     <dt class="r1">Inherits:</dt>
     <dd class="r1">
-      <span class="inheritName">ActiveRecord::Base</span>
+      <span class="inheritName">StandardError</span>
       
         <ul class="fullTree">
           <li>Object</li>
           
-            <li class="next">ActiveRecord::Base</li>
+            <li class="next">StandardError</li>
           
-            <li class="next">ShippingMethod</li>
+            <li class="next">VariantRequiredError</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -96,7 +96,7 @@
   
   
     <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">app/models/shipping_method.rb</dd>
+    <dd class="r2 last">app/models/product.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -106,13 +106,26 @@
     
 <h2 id="label-Schema+Information">Schema Information</h2>
 
-<p>Table name: shipping_methods</p>
+<p>Table name: products</p>
 
-<pre class="code ruby"><code>id               :integer(4)      not null, primary key
-name             :string(255)     not null
-shipping_zone_id :integer(4)      not null
-created_at       :datetime
-updated_at       :datetime</code></pre>
+<pre class="code ruby"><code>id                   :integer(4)      not null, primary key
+name                 :string(255)     not null
+description          :text
+product_keywords     :text
+product_type_id      :integer(4)      not null
+prototype_id         :integer(4)
+shipping_category_id :integer(4)      not null
+permalink            :string(255)     not null
+available_at         :datetime
+deleted_at           :datetime
+meta_keywords        :string(255)
+meta_description     :string(255)
+featured             :boolean(1)      default(FALSE)
+created_at           :datetime
+updated_at           :datetime
+description_markup   :text
+active               :boolean(1)      default(FALSE)
+brand_id             :integer(4)</code></pre>
 
 
   </div>
@@ -133,7 +146,7 @@ updated_at       :datetime</code></pre>
 </div>
 
     <div id="footer">
-  Generated on Mon Feb  4 13:23:15 2013 by
+  Generated on Mon Feb  4 13:23:14 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.9.3).
 </div>
