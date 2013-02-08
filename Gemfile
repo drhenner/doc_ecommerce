@@ -31,7 +31,7 @@ gem 'will_paginate', '~> 3.0.pre2'
 group :development do
   gem 'awesome_print'
   gem "autotest-rails-pure"
-  gem "nifty-generators", :git => 'git://github.com/drhenner/nifty-generators.git'
+  #gem "nifty-generators", :git => 'git://github.com/drhenner/nifty-generators.git'
   gem "rails-erd"
   gem 'mysql2', '~> 0.2.7'
   #gem "ruby-debug19"
@@ -58,7 +58,7 @@ group :test do
   gem "autotest"
   gem "autotest-rails-pure"
   if RUBY_PLATFORM =~ /darwin/
-    gem "autotest-fsevent"
+    #gem "autotest-fsevent"
   end
   gem "autotest-growl"
 end
