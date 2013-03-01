@@ -4,12 +4,10 @@ class PostsController < ApplicationController
   # GET /posts
   def index
     params[:page] ||= 1
-    @posts = Post.includes(:comments).order("posted_at DESC").paginate({:page => params[:page],:per_page => 5})
+    @posts = Post.includes(:comments).order("posted_at DESC").paginate({:page => params[:page],:per_page => 6})
 
     respond_to do |format|
       format.html
-      #format.xml { render :xml => @posts  }
-      #format.json { render :json => @posts }
       format.rss { render :layout => false } #index.rss.builder
     end
   end
