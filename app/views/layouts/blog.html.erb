@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html><head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-
+<%= render :partial => '/layouts/meta_data' %>
 <% if content_for?(:title) %>
   <title>RoR-e: <%= yield :title %></title>
 <% else %>
@@ -9,7 +9,6 @@
 <% end %>
 
 <meta name="author" content="RoR-e Blog"/>
-<meta name="description" content="Ruby on Rails Ecommerce Blog"/>
 <%= csrf_meta_tag %>
 <%= yield :robots %>
 <%= stylesheet_link_tag "blog" %> <%= yield :modstyles %>
