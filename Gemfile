@@ -1,9 +1,13 @@
 source 'http://rubygems.org'
 source "http://gems.github.com"
 
+#gem 'heroku'
+#gem 'taps'
+
+
 gem 'rails', '~>  3.0.7'
 gem 'jquery-rails'
-gem "compass", ">= 0.12.rc.0"
+gem "compass", "~> 0.12.2"
 gem 'haml',  ">= 3.0.13"
 gem 'fancy-buttons'
 
@@ -18,7 +22,7 @@ gem 'pg'
 
 gem 'bluecloth'
 gem 'rakismet'
-gem 'will_paginate', '~> 3.0.pre2'
+gem 'will_paginate', '~> 3.0.0'
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
