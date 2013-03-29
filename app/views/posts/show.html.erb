@@ -1,12 +1,19 @@
 <% content_for :title do %><%= @post.title %><% end %>
 
-<% content_for :description do %><%= description(@post.content) %><% end %>
+<% content_for :description do %>
+  <%= description(@post.content) %>
+<% end %>
+<% content_for :metadata do %>
+  <meta name="description" content="<%= [@post.title, strip_tags( @post.content )[0..250]].join(': ') %>">
+  <meta name="keywords" content="ruby,rails,ecommerce,ror,spree,ror_ecommerce,rorecommerce,rails4,rails3,commerce,e-commerce">
+
+<% end %>
 
 <% if current_user %>
-<% content_for :robots do %>
-<meta name="robots" content="noarchive"/>
-<meta name="robots" content="noindex, nofollow"/>
-<% end %>
+  <% content_for :robots do %>
+  <meta name="robots" content="noarchive"/>
+  <meta name="robots" content="noindex, nofollow"/>
+  <% end %>
 <% end %>
 
 <% content_for :adminbar_left do %>
