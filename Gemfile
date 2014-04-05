@@ -37,7 +37,7 @@ group :development do
   gem "autotest-rails-pure"
   #gem "nifty-generators", :git => 'git://github.com/drhenner/nifty-generators.git'
   gem "rails-erd"
-  gem 'mysql2', '~> 0.2.7'
+  gem 'mysql2', '~> 0.2.22'
   #gem "ruby-debug19"
   #gem "ruby-debug"
 end

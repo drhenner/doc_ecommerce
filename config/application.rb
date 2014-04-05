@@ -24,7 +24,7 @@ module DocEcommerce
 
     # Do not initialize application on precompile.
     # https://devcenter.heroku.com/articles/rails-asset-pipeline#troubleshooting
-    config.assets.initialize_on_precompile = false
+    #config.assets.initialize_on_precompile = false
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
