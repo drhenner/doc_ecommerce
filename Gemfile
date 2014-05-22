@@ -1,11 +1,11 @@
 source 'http://rubygems.org'
 source "http://gems.github.com"
-
+ruby "1.9.3"
 #gem 'heroku'
 #gem 'taps'
 
 
-gem 'rails', '~>  3.0.7'
+gem 'rails', '~>  3.0.20'
 gem 'jquery-rails'
 gem "compass", "~> 0.12.2"
 gem 'haml',  ">= 3.0.13"
@@ -22,6 +22,7 @@ gem 'pg'
 
 gem 'bluecloth'
 gem 'rakismet'
+gem 'sqlite3'
 gem 'will_paginate', '~> 3.0.0'
 
 # Bundle gems for the local environment. Make sure to
@@ -38,8 +39,8 @@ group :development do
   #gem "nifty-generators", :git => 'git://github.com/drhenner/nifty-generators.git'
   gem "rails-erd"
   gem 'mysql2', '~> 0.2.22'
-  #gem "ruby-debug19"
-  #gem "ruby-debug"
+  gem "debugger"
+  #gem "byebug"
 end
 
 
