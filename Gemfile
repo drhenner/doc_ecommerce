@@ -22,7 +22,6 @@ gem 'pg'
 
 gem 'bluecloth'
 gem 'rakismet'
-gem 'sqlite3'
 gem 'will_paginate', '~> 3.0.0'
 
 # Bundle gems for the local environment. Make sure to
@@ -32,14 +31,13 @@ gem 'will_paginate', '~> 3.0.0'
 #   gem 'webrat'
 # end
 
-
 group :development do
   gem 'awesome_print'
   gem "autotest-rails-pure"
   #gem "nifty-generators", :git => 'git://github.com/drhenner/nifty-generators.git'
   gem "rails-erd"
   gem 'mysql2', '~> 0.2.22'
-  gem "debugger"
+  #gem "debugger"
   #gem "byebug"
 end
 
