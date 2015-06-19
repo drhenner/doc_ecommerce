@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 source "http://gems.github.com"
-ruby "2.0.0"
+ruby "1.9.3"
 #gem 'heroku'
 #gem 'taps'
 
